@@ -33,8 +33,8 @@ export function Hero() {
           }}
         >
           <Image
-            src="/assets/monopoli-tramonto.jpg"
-            alt="Tramonto sul porto di Monopoli"
+            src="/assets/hero.jpg"
+            alt="La costa di Monopoli al tramonto, Puglia"
             fill
             priority
             sizes="100vw"
@@ -130,11 +130,11 @@ export function Hero() {
           </p>
           <a
             href="#contatti"
-            className="btn-hero"
+            className="btn-teal"
             style={{
               marginTop: 6,
               display: "inline-block",
-              background: "#C0673D",
+              background: "#1E6E73",
               color: "#F5EFE3",
               textDecoration: "none",
               fontFamily: SANS,
@@ -143,7 +143,7 @@ export function Hero() {
               textTransform: "uppercase",
               fontWeight: 600,
               padding: "16px 34px",
-              borderRadius: 2,
+              borderRadius: 7,
             }}
           >
             {tr(
