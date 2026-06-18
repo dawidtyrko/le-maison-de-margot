@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<template id="__bundler_thumbnail" data-bg-color="#143A42">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#143A42"/>
+    <circle cx="600" cy="345" r="92" fill="none" stroke="#F5EFE3" stroke-width="3" opacity="0.85"/>
+    <text x="600" y="378" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="96" fill="#F5EFE3">m</text>
+    <text x="600" y="500" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="58" fill="#F5EFE3">la maison</text>
+    <text x="600" y="566" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="58" fill="#9DB3AE">de margot</text>
+  </svg>
+</template>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&amp;family=Mulish:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:#F5EFE3;}
+@keyframes revealUp{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:none;}}
+@keyframes sink{from{opacity:0;}to{opacity:1;}}
+@keyframes cue{0%{transform:translateY(0);opacity:.45;}50%{transform:translateY(7px);opacity:1;}100%{transform:translateY(0);opacity:.45;}}
+@keyframes pop{from{opacity:0;transform:translateY(-10px) scale(.95);}to{opacity:1;transform:none;}}
+::selection{background:#1A535A;color:#F5EFE3;}
+::-webkit-scrollbar{width:10px;}::-webkit-scrollbar-thumb{background:#cabfa6;border-radius:8px;}
+input,textarea,select,button{font-family:inherit;}
+</style>
+</helmet>
+
+<div id="lmdm-root" style="font-family:'Mulish',-apple-system,sans-serif;color:#27424A;background:#F5EFE3;overflow-x:hidden;position:relative;" data-screen-label="La Maison de Margot — Home">
+<span id="top"></span>
+
+<!-- ============ HEADER ============ -->
+<header id="topbar" style="position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;padding:20px clamp(18px,4vw,54px);background:linear-gradient(180deg,rgba(15,40,46,.45),rgba(15,40,46,0));transition:background .45s ease,padding .45s ease,box-shadow .45s ease;">
+  <button data-menu-open="" data-hdr-ink="" style="display:inline-flex;align-items:center;gap:10px;background:none;border:none;cursor:pointer;color:#F5EFE3;font-family:'Mulish';font-size:12px;letter-spacing:.26em;text-transform:uppercase;font-weight:600;padding:6px 0;">
+    <span style="display:flex;flex-direction:column;gap:3px;width:20px;"><span style="height:1.5px;background:currentColor;display:block;"></span><span style="height:1.5px;background:currentColor;display:block;width:13px;"></span></span>
+    <span data-en="Menu">Menu</span>
+  </button>
+  <a href="#top" data-hdr-ink="" style="text-decoration:none;color:#F5EFE3;font-family:'Cormorant',serif;font-size:clamp(17px,2vw,21px);letter-spacing:.04em;line-height:1;text-align:center;white-space:nowrap;">la maison <span style="font-style:italic;">de margot</span></a>
+  <div style="display:flex;align-items:center;gap:clamp(12px,2vw,22px);">
+    <div style="display:flex;align-items:center;gap:6px;font-size:12px;letter-spacing:.12em;font-weight:600;">
+      <button data-lang-btn="it" data-hdr-ink="" style="background:none;border:none;cursor:pointer;color:#F5EFE3;padding:2px;letter-spacing:.12em;">IT</button>
+      <span data-hdr-ink="" style="color:#F5EFE3;opacity:.5;">/</span>
+      <button data-lang-btn="en" data-hdr-ink="" style="background:none;border:none;cursor:pointer;color:#F5EFE3;padding:2px;letter-spacing:.12em;">EN</button>
+    </div>
+    <a href="#contatti" data-hdr-ink="" style="display:inline-block;background:rgba(30,110,115,.14);color:#F5EFE3;text-decoration:none;font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;padding:11px 22px;border-radius:30px;border:1px solid rgba(30,110,115,.42);backdrop-filter:blur(6px);transition:background .35s ease,border-color .35s ease,transform .35s ease;" style-hover="background:rgba(30,110,115,.3);border-color:rgba(30,110,115,.75);transform:translateY(-1px);"><span data-en="Book">Prenota</span></a>
+  </div>
+</header>
+
+<!-- ============ MENU OVERLAY ============ -->
+<nav id="menu-overlay" style="position:fixed;inset:0;z-index:90;display:none;">
+  <div data-menu-close="" style="position:absolute;inset:0;background:rgba(20,50,58,.14);backdrop-filter:blur(2px);animation:sink .3s ease both;"></div>
+  <div style="position:absolute;top:72px;left:clamp(14px,4vw,50px);width:min(288px,calc(100vw - 28px));background:#FBF7EE;border-radius:12px;box-shadow:0 24px 60px rgba(20,50,58,.26),0 2px 8px rgba(20,50,58,.12);overflow:hidden;transform-origin:top left;animation:pop .3s cubic-bezier(.2,.85,.25,1) both;">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:15px 16px 7px 18px;">
+      <span style="font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:#1E6E73;font-weight:700;" data-en="Menu">Menu</span>
+      <button data-menu-close="" style="background:none;border:none;color:#27424A;cursor:pointer;font-size:22px;line-height:1;opacity:.55;transition:opacity .25s;padding:0 2px;" style-hover="opacity:1;">×</button>
+    </div>
+    <div style="display:flex;flex-direction:column;padding:2px 8px 8px;">
+      <a href="#appartamento" style="display:block;text-decoration:none;color:#14323A;font-family:'Cormorant',serif;font-size:21px;font-weight:500;padding:9px 12px;border-radius:8px;transition:background .22s,color .22s,padding-left .22s;" style-hover="background:#E3EDEA;color:#1E6E73;padding-left:16px;"><span data-en="The apartment">L'appartamento</span></a>
+      <a href="#posizione" style="display:block;text-decoration:none;color:#14323A;font-family:'Cormorant',serif;font-style:italic;font-size:21px;font-weight:500;padding:9px 12px;border-radius:8px;transition:background .22s,color .22s,padding-left .22s;" style-hover="background:#E3EDEA;color:#1E6E73;padding-left:16px;"><span data-en="Location — all on foot">Posizione — tutto a piedi</span></a>
+      <a href="#monopoli" style="display:block;text-decoration:none;color:#14323A;font-family:'Cormorant',serif;font-size:21px;font-weight:500;padding:9px 12px;border-radius:8px;transition:background .22s,color .22s,padding-left .22s;" style-hover="background:#E3EDEA;color:#1E6E73;padding-left:16px;"><span data-en="Monopoli &amp; around">Monopoli &amp; dintorni</span></a>
+      <a href="#esperienze" style="display:block;text-decoration:none;color:#14323A;font-family:'Cormorant',serif;font-size:21px;font-weight:500;padding:9px 12px;border-radius:8px;transition:background .22s,color .22s,padding-left .22s;" style-hover="background:#E3EDEA;color:#1E6E73;padding-left:16px;"><span data-en="Experiences">Esperienze</span></a>
+      <a href="#bar" style="display:block;text-decoration:none;color:#14323A;font-family:'Cormorant',serif;font-style:italic;font-size:21px;font-weight:500;padding:9px 12px;border-radius:8px;transition:background .22s,color .22s,padding-left .22s;" style-hover="background:#E3EDEA;color:#1E6E73;padding-left:16px;"><span data-en="The seaside pool bar">Il bar sul mare</span></a>
+      <a href="#come-arrivare" style="display:block;text-decoration:none;color:#14323A;font-family:'Cormorant',serif;font-size:21px;font-weight:500;padding:9px 12px;border-radius:8px;transition:background .22s,color .22s,padding-left .22s;" style-hover="background:#E3EDEA;color:#1E6E73;padding-left:16px;"><span data-en="Getting here">Come raggiungerci</span></a>
+      <a href="#contatti" style="display:block;text-decoration:none;color:#14323A;font-family:'Cormorant',serif;font-style:italic;font-size:21px;font-weight:500;padding:9px 12px;border-radius:8px;transition:background .22s,color .22s,padding-left .22s;" style-hover="background:#E3EDEA;color:#1E6E73;padding-left:16px;"><span data-en="Book &amp; contact">Prenota &amp; contatti</span></a>
+    </div>
+    <div style="border-top:1px solid rgba(30,95,95,.16);padding:13px 18px 15px;display:flex;flex-direction:column;gap:7px;color:#5C7173;font-size:12px;letter-spacing:.02em;">
+      <span>Via Tenente Vasco 4 · Monopoli</span>
+      <span style="display:inline-flex;gap:16px;"><a href="#contatti" style="color:#1E6E73;text-decoration:none;font-weight:600;">WhatsApp</a><a href="#contatti" style="color:#1E6E73;text-decoration:none;font-weight:600;">Instagram</a><a href="#contatti" style="color:#1E6E73;text-decoration:none;font-weight:600;">Email</a></span>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO DIRECTION SWITCHER (explorer tool) ============ -->
+<div data-switcher="" style="position:fixed;left:clamp(14px,3vw,28px);bottom:clamp(14px,3vw,26px);z-index:70;background:rgba(251,247,238,.92);backdrop-filter:blur(8px);border:1px solid rgba(20,50,58,.14);border-radius:40px;padding:7px 9px 7px 16px;display:flex;align-items:center;gap:10px;box-shadow:0 10px 30px rgba(20,50,58,.16);">
+  <span style="font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#7A6A4E;font-weight:600;">Hero</span>
+  <div style="display:flex;gap:4px;">
+    <button data-hero-btn="tramonto" style="border:none;cursor:pointer;font-size:11px;letter-spacing:.04em;font-weight:600;padding:7px 12px;border-radius:30px;background:#14323A;color:#F5EFE3;transition:all .25s;">Tramonto</button>
+    <button data-hero-btn="editoriale" style="border:none;cursor:pointer;font-size:11px;letter-spacing:.04em;font-weight:600;padding:7px 12px;border-radius:30px;background:transparent;color:#14323A;transition:all .25s;">Editoriale</button>
+    <button data-hero-btn="notturno" style="border:none;cursor:pointer;font-size:11px;letter-spacing:.04em;font-weight:600;padding:7px 12px;border-radius:30px;background:transparent;color:#14323A;transition:all .25s;">Notturno</button>
+  </div>
+</div>
+
+<!-- ============ HERO ============ -->
+<section style="position:relative;">
+
+  <!-- HERO A — TRAMONTO -->
+  <div data-hero="tramonto" style="position:relative;min-height:100svh;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+    <img data-parallax="0.22" src="assets/monopoli-tramonto.jpg" alt="Tramonto sul porto di Monopoli" style="position:absolute;left:0;top:-12%;width:100%;height:124%;object-fit:cover;">
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,28,30,.34) 0%,rgba(28,28,30,.12) 38%,rgba(40,30,24,.5) 100%);"></div>
+    <div data-reveal="" style="position:relative;z-index:2;text-align:center;padding:0 24px;display:flex;flex-direction:column;align-items:center;gap:26px;">
+      <div style="width:72px;height:72px;border:1px solid rgba(245,239,227,.55);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+        <span style="font-family:'Cormorant',serif;font-style:italic;font-size:36px;color:#F5EFE3;line-height:1;">m</span>
+      </div>
+      <h1 style="margin:0;font-family:'Cormorant',serif;color:#F5EFE3;line-height:.9;font-weight:500;letter-spacing:.01em;text-shadow:0 2px 30px rgba(20,16,12,.35);">
+        <span style="display:block;font-size:clamp(46px,9vw,118px);">la maison</span>
+        <span style="display:block;font-size:clamp(46px,9vw,118px);font-style:italic;">de margot</span>
+      </h1>
+      <p data-en="In the heart of Monopoli's old town — the sea, the squares and the harbour, all just a short walk away." style="margin:0;max-width:560px;color:rgba(245,239,227,.94);font-size:clamp(15px,1.7vw,20px);font-weight:300;line-height:1.6;letter-spacing:.01em;">Nel cuore del centro storico di Monopoli — il mare, le piazze e il porto, tutto a pochi passi.</p>
+      <a href="#contatti" data-accent-bg="" style="margin-top: 6px; display: inline-block; background: #1E6E73; color: #F5EFE3; text-decoration: none; font-size: 13px; letter-spacing: .22em; text-transform: uppercase; font-weight: 600; padding: 16px 34px; border-radius: 7px; transition: background .3s,transform .3s" style-hover="background:#185B60;transform:translateY(-2px);"><span data-en="Check availability">Verifica disponibilità</span></a>
+    </div>
+    <a href="#benvenuti" style="position:absolute;left:50%;transform:translateX(-50%);bottom:30px;z-index:2;color:rgba(245,239,227,.85);text-decoration:none;font-size:11px;letter-spacing:.24em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:8px;">
+      <span data-en="Scroll">Scopri</span>
+      <span style="display:block;width:1px;height:34px;background:linear-gradient(rgba(245,239,227,.8),transparent);animation:cue 2.4s ease-in-out infinite;"></span>
+    </a>
+  </div>
+
+  <!-- HERO B — EDITORIALE -->
+  <div data-hero="editoriale" style="display:none;min-height:100svh;background:#F5EFE3;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));min-height:100svh;">
+      <div style="display:flex;flex-direction:column;justify-content:center;padding:clamp(90px,12vh,150px) clamp(28px,6vw,90px) clamp(40px,8vh,90px);">
+        <span style="font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:#1E6E73;font-weight:600;margin-bottom:22px;" data-en="A design-led home · Monopoli, Puglia">Una casa d'autore · Monopoli, Puglia</span>
+        <h1 style="margin:0;font-family:'Cormorant',serif;color:#14323A;line-height:.92;font-weight:500;">
+          <span style="display:block;font-size:clamp(48px,7vw,104px);">la maison</span>
+          <span style="display:block;font-size:clamp(48px,7vw,104px);font-style:italic;color:#2E6E72;">de margot</span>
+        </h1>
+        <p data-en="An intimate, curated apartment in the old heart of Monopoli. The sea, the squares and the harbour — everything within a few minutes on foot." style="margin:30px 0 0;max-width:440px;color:#3C5158;font-size:clamp(15px,1.5vw,19px);font-weight:300;line-height:1.7;">Un appartamento intimo e curato nel cuore antico di Monopoli. Il mare, le piazze e il porto — tutto a pochi minuti a piedi.</p>
+        <div style="margin-top:38px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;">
+          <a href="#contatti" data-accent-bg="" style="display:inline-block;background:#1E6E73;color:#F5EFE3;text-decoration:none;font-size:13px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;padding:16px 32px;border-radius:2px;transition:background .3s,transform .3s;" style-hover="background:#185B60;transform:translateY(-2px);"><span data-en="Check availability">Verifica disponibilità</span></a>
+          <a href="#appartamento" style="color:#14323A;text-decoration:none;font-size:13px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;border-bottom:1px solid rgba(20,50,58,.35);padding-bottom:3px;" data-en="See the apartment">Scopri l'appartamento</a>
+        </div>
+      </div>
+      <div style="position:relative;overflow:hidden;min-height:50svh;">
+        <img data-parallax="0.12" src="assets/monopoli-1.jpg" alt="I tetti del centro storico di Monopoli verso il mare" style="position:absolute;left:0;top:-8%;width:100%;height:116%;object-fit:cover;">
+        <div style="position:absolute;inset:0;background:linear-gradient(120deg,rgba(245,239,227,.12),transparent 40%);"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO C — NOTTURNO -->
+  <div data-hero="notturno" style="position:relative;display:none;min-height:100svh;overflow:hidden;align-items:flex-end;">
+    <img data-parallax="0.18" src="assets/piazza-notte.jpg" alt="Piazza Vittorio Emanuele II di Monopoli illuminata" style="position:absolute;left:0;top:-10%;width:100%;height:120%;object-fit:cover;">
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,22,30,.55) 0%,rgba(16,22,30,.15) 45%,rgba(12,18,26,.78) 100%);"></div>
+    <div data-reveal="" style="position:relative;z-index:2;width:100%;padding:0 clamp(28px,6vw,90px) clamp(70px,12vh,120px);">
+      <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px;">
+        <span style="width:58px;height:58px;border:1px solid rgba(245,239,227,.5);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant',serif;font-style:italic;font-size:28px;color:#F5EFE3;">m</span>
+        <span style="font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:rgba(245,239,227,.85);font-weight:600;" data-en="A few steps from the square">A due passi dalla piazza</span>
+      </div>
+      <h1 style="margin:0;font-family:'Cormorant',serif;color:#F5EFE3;line-height:.92;font-weight:500;text-shadow:0 2px 40px rgba(0,0,0,.4);">
+        <span style="display:block;font-size:clamp(46px,8.5vw,120px);">la maison <span style="font-style:italic;">de margot</span></span>
+      </h1>
+      <p data-en="Live the old town from the inside — dinners, evening strolls and the sea, all on your doorstep." style="margin:24px 0 32px;max-width:520px;color:rgba(245,239,227,.92);font-size:clamp(15px,1.6vw,19px);font-weight:300;line-height:1.65;">Vivi il centro storico da dentro — le cene, le passeggiate serali e il mare, tutto sull'uscio di casa.</p>
+      <a href="#contatti" data-accent-bg="" style="display:inline-block;background:#1E6E73;color:#F5EFE3;text-decoration:none;font-size:13px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;padding:16px 34px;border-radius:2px;transition:background .3s,transform .3s;" style-hover="background:#185B60;transform:translateY(-2px);"><span data-en="Book now">Prenota ora</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BENVENUTI ============ -->
+<section id="benvenuti" style="scroll-margin-top:90px;background:#F5EFE3;padding:clamp(80px,12vh,150px) clamp(24px,6vw,90px);">
+  <div data-reveal="" style="max-width:880px;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center;gap:30px;">
+    <span style="color:#8CA09A;display:inline-flex;" aria-hidden="true"><svg width="150" height="30" viewBox="0 0 160 34" fill="none"><path d="M16 17C55 17 95 17 144 17" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"></path><g fill="currentColor"><circle cx="78" cy="17" r="2"></circle><circle cx="86" cy="17" r="2"></circle><ellipse cx="48" cy="10" rx="8" ry="2.6" transform="rotate(-24 48 10)"></ellipse><ellipse cx="60" cy="24" rx="8" ry="2.6" transform="rotate(22 60 24)"></ellipse><ellipse cx="100" cy="10" rx="8" ry="2.6" transform="rotate(24 100 10)"></ellipse><ellipse cx="112" cy="24" rx="8" ry="2.6" transform="rotate(-22 112 24)"></ellipse><ellipse cx="30" cy="20" rx="7" ry="2.3" transform="rotate(18 30 20)"></ellipse><ellipse cx="130" cy="20" rx="7" ry="2.3" transform="rotate(-18 130 20)"></ellipse></g></svg></span>
+    <span style="font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:#A8542E;font-weight:600;" data-en="Welcome">Benvenuti</span>
+    <h2 data-en="A small home with a story, in the white heart of Puglia." style="margin:0;font-family:'Cormorant',serif;font-weight:500;color:#14323A;font-size:clamp(30px,4.4vw,58px);line-height:1.08;letter-spacing:-0.01em;text-wrap:balance;">Una piccola casa che racconta una storia, nel cuore bianco della Puglia.</h2>
+    <p data-en="La maison de margot is not a hotel and not just a rental: it is a home, designed with care, where contemporary design meets the sun-washed stone of the centro storico. Pop-art portraits, a green-marble table, oak floors and a deep-teal wall — and outside the door, all of Monopoli on foot." style="margin:0;max-width:680px;color:#3C5158;font-size:clamp(16px,1.6vw,19px);font-weight:300;line-height:1.85;">La maison de margot non è un albergo, e non è soltanto un affitto: è una casa, pensata con cura, dove il design contemporaneo incontra la pietra sun-washed del centro storico. Ritratti pop-art, un tavolo in marmo verde, parquet di rovere e una parete verde-petrolio — e, fuori dalla porta, tutta Monopoli a piedi.</p>
+  </div>
+</section>
+
+<!-- ============ L'APPARTAMENTO ============ -->
+<section id="appartamento" style="scroll-margin-top:90px;background:#E3EDEA;padding:clamp(72px,10vh,130px) clamp(24px,6vw,90px);">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div data-reveal="" style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:clamp(36px,5vw,60px);">
+      <div>
+        <span style="font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:#1E6E73;font-weight:600;" data-en="The apartment">L'appartamento</span>
+        <h2 data-en="One home, designed down to the last detail." style="margin:14px 0 0;font-family:'Cormorant',serif;font-weight:500;color:#14323A;font-size:clamp(32px,4.6vw,62px);line-height:1.02;letter-spacing:-0.01em;max-width:13ch;">Una sola casa, curata fino all'ultimo dettaglio.</h2>
+      </div>
+      <p data-en="A bright open-plan living-kitchen, a quiet double bedroom and a spa-like bathroom. Sleeps up to four. Click any photo to enlarge." style="margin:0;max-width:340px;color:#3C5158;font-size:15px;font-weight:300;line-height:1.7;">Un soggiorno-cucina luminoso open space, una camera matrimoniale silenziosa e un bagno avvolgente. Fino a quattro ospiti. Tocca una foto per ingrandirla.</p>
+    </div>
+
+    <!-- GALLERY -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));grid-auto-rows:200px;gap:14px;">
+      <button data-full="assets/soggiorno-1.jpg" data-cap="Soggiorno — parete verde-petrolio e ritratti pop-art" data-cap-en="Living room — deep-teal wall and pop-art portraits" data-reveal="" style="grid-column:span 2;grid-row:span 2;border:none;padding:0;cursor:pointer;overflow:hidden;border-radius:3px;background:#ddd;">
+        <img src="assets/soggiorno-1.jpg" alt="Soggiorno con parete verde petrolio" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s ease;" style-hover="transform:scale(1.06);">
+      </button>
+      <button data-full="assets/soggiorno-2.jpg" data-cap="Tavolo in marmo verde e cucina" data-cap-en="Green-marble table and kitchen" data-reveal="" data-delay="80" style="border:none;padding:0;cursor:pointer;overflow:hidden;border-radius:3px;background:#ddd;">
+        <img src="assets/soggiorno-2.jpg" alt="Tavolo in marmo verde" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s ease;" style-hover="transform:scale(1.06);">
+      </button>
+      <button data-full="assets/camera-3.jpg" data-cap="Camera matrimoniale" data-cap-en="Double bedroom" data-reveal="" data-delay="140" style="border:none;padding:0;cursor:pointer;overflow:hidden;border-radius:3px;background:#ddd;">
+        <img src="assets/camera-3.jpg" alt="Camera da letto" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s ease;" style-hover="transform:scale(1.06);">
+      </button>
+      <button data-full="assets/bagno-1.jpg" data-cap="Bagno con specchio tondo" data-cap-en="Bathroom with round mirror" data-reveal="" style="border:none;padding:0;cursor:pointer;overflow:hidden;border-radius:3px;background:#ddd;">
+        <img src="assets/bagno-1.jpg" alt="Bagno" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s ease;" style-hover="transform:scale(1.06);">
+      </button>
+      <button data-full="assets/cucina-1.jpg" data-cap="Cucina attrezzata" data-cap-en="Fully-equipped kitchen" data-reveal="" data-delay="80" style="border:none;padding:0;cursor:pointer;overflow:hidden;border-radius:3px;background:#ddd;">
+        <img src="assets/cucina-1.jpg" alt="Cucina" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s ease;" style-hover="transform:scale(1.06);">
+      </button>
+      <button data-full="assets/ingresso.jpg" data-cap="Ingresso e corridoio" data-cap-en="Entrance hallway" data-reveal="" data-delay="140" style="grid-column:span 2;border:none;padding:0;cursor:pointer;overflow:hidden;border-radius:3px;background:#ddd;">
+        <img src="assets/ingresso.jpg" alt="Ingresso" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s ease;" style-hover="transform:scale(1.06);">
+      </button>
+      <button data-full="assets/bagno-2.jpg" data-cap="Bagno — doccia e dettagli" data-cap-en="Bathroom — shower and details" data-reveal="" style="grid-row:span 2;border:none;padding:0;cursor:pointer;overflow:hidden;border-radius:3px;background:#ddd;">
+        <img src="assets/bagno-2.jpg" alt="Bagno alto" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s ease;" style-hover="transform:scale(1.06);">
+      </button>
+      <button data-full="assets/camera-2.jpg" data-cap="Camera — luce del mattino" data-cap-en="Bedroom — morning light" data-reveal="" data-delay="80" style="border:none;padding:0;cursor:pointer;overflow:hidden;border-radius:3px;background:#ddd;">
+        <img src="assets/camera-2.jpg" alt="Camera con tende" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s ease;" style-hover="transform:scale(1.06);">
+      </button>
+      </div>
+    </div>
+
+    <!-- SERVIZI -->
+    <div data-reveal="" style="margin-top:clamp(48px,7vw,80px);display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(30px,4vw,60px);align-items:start;">
+      <div>
+        <span style="color:#8CA09A;display:inline-flex;margin-bottom:14px;" aria-hidden="true"><svg width="120" height="24" viewBox="0 0 160 34" fill="none"><path d="M16 17C55 17 95 17 144 17" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"></path><g fill="currentColor"><circle cx="78" cy="17" r="2"></circle><circle cx="86" cy="17" r="2"></circle><ellipse cx="48" cy="10" rx="8" ry="2.6" transform="rotate(-24 48 10)"></ellipse><ellipse cx="60" cy="24" rx="8" ry="2.6" transform="rotate(22 60 24)"></ellipse><ellipse cx="100" cy="10" rx="8" ry="2.6" transform="rotate(24 100 10)"></ellipse><ellipse cx="112" cy="24" rx="8" ry="2.6" transform="rotate(-22 112 24)"></ellipse></g></svg></span>
+        <h3 data-en="What's included" style="margin:0 0 10px;font-family:'Cormorant',serif;font-weight:500;color:#14323A;font-size:clamp(26px,3vw,38px);line-height:1.05;">Servizi inclusi</h3>
+        <p data-en="Everything for a self-sufficient, comfortable stay — with a self check-in so you arrive whenever it suits you." style="margin:0;color:#3C5158;font-size:15px;font-weight:300;line-height:1.7;max-width:34ch;">Tutto per un soggiorno autonomo e confortevole — con self check-in, per arrivare quando preferisci.</p>
+      </div>
+      <ul style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px 26px;">
+        <li style="display:flex;align-items:center;gap:11px;color:#27424A;font-size:15px;"><span style="width:7px;height:7px;background:#1E6E73;transform:rotate(45deg);flex:none;"></span><span data-en="Fibre Wi-Fi">Wi-Fi in fibra</span></li>
+        <li style="display:flex;align-items:center;gap:11px;color:#27424A;font-size:15px;"><span style="width:7px;height:7px;background:#1E6E73;transform:rotate(45deg);flex:none;"></span><span data-en="Air conditioning">Aria condizionata</span></li>
+        <li style="display:flex;align-items:center;gap:11px;color:#27424A;font-size:15px;"><span style="width:7px;height:7px;background:#1E6E73;transform:rotate(45deg);flex:none;"></span><span data-en="Equipped kitchen">Cucina attrezzata</span></li>
+        <li style="display:flex;align-items:center;gap:11px;color:#27424A;font-size:15px;"><span style="width:7px;height:7px;background:#1E6E73;transform:rotate(45deg);flex:none;"></span><span data-en="Nespresso machine">Macchina caffè Nespresso</span></li>
+        <li style="display:flex;align-items:center;gap:11px;color:#27424A;font-size:15px;"><span style="width:7px;height:7px;background:#1E6E73;transform:rotate(45deg);flex:none;"></span><span data-en="Smart TV">Smart TV</span></li>
+        <li style="display:flex;align-items:center;gap:11px;color:#27424A;font-size:15px;"><span style="width:7px;height:7px;background:#1E6E73;transform:rotate(45deg);flex:none;"></span><span data-en="Washing machine">Lavatrice</span></li>
+        <li style="display:flex;align-items:center;gap:11px;color:#27424A;font-size:15px;"><span style="width:7px;height:7px;background:#1E6E73;transform:rotate(45deg);flex:none;"></span><span data-en="Linen &amp; towels">Biancheria e asciugamani</span></li>
+        <li style="display:flex;align-items:center;gap:11px;color:#27424A;font-size:15px;"><span style="width:7px;height:7px;background:#1E6E73;transform:rotate(45deg);flex:none;"></span><span data-en="Courtesy set">Set di cortesia</span></li>
+        <li style="display:flex;align-items:center;gap:11px;color:#27424A;font-size:15px;"><span style="width:7px;height:7px;background:#1E6E73;transform:rotate(45deg);flex:none;"></span><span data-en="Hairdryer">Asciugacapelli</span></li>
+        <li style="display:flex;align-items:center;gap:11px;color:#27424A;font-size:15px;"><span style="width:7px;height:7px;background:#1E6E73;transform:rotate(45deg);flex:none;"></span><span data-en="Heating">Riscaldamento</span></li>
+        <li style="display:flex;align-items:center;gap:11px;color:#27424A;font-size:15px;"><span style="width:7px;height:7px;background:#1E6E73;transform:rotate(45deg);flex:none;"></span><span data-en="Cot on request">Culla su richiesta</span></li>
+        <li style="display:flex;align-items:center;gap:11px;color:#27424A;font-size:15px;"><span style="width:7px;height:7px;background:#1E6E73;transform:rotate(45deg);flex:none;"></span><span data-en="Self check-in">Self check-in</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ POSIZIONE — TUTTO A PIEDI ============ -->
+<section id="posizione" style="scroll-margin-top:90px;background:#F5EFE3;padding:clamp(72px,10vh,130px) clamp(24px,6vw,90px);">
+  <div style="max-width:1160px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(40px,6vw,80px);align-items:center;">
+    <!-- radial map -->
+    <div data-reveal="" style="position:relative;aspect-ratio:1/1;background:radial-gradient(circle at 50% 50%,#EDF3F1,#D4E4E0);border-radius:6px;overflow:hidden;box-shadow:0 30px 70px rgba(30,95,95,.16);">
+      <svg viewBox="0 0 400 400" style="position:absolute;inset:0;width:100%;height:100%;">
+        <g fill="none" stroke="#9DB3AE" stroke-width="1" opacity="0.5">
+          <circle cx="200" cy="200" r="60"></circle><circle cx="200" cy="200" r="110"></circle><circle cx="200" cy="200" r="160"></circle>
+        </g>
+        <g stroke="#bca77f" stroke-width="1" opacity="0.45"><path d="M200 200 L70 120"></path><path d="M200 200 L330 110"></path><path d="M200 200 L120 320"></path><path d="M200 200 L330 300"></path><path d="M200 200 L210 40"></path></g>
+        <g fill="#1E6E73"><circle cx="70" cy="120" r="5"></circle><circle cx="330" cy="110" r="5"></circle><circle cx="120" cy="320" r="5"></circle><circle cx="330" cy="300" r="5"></circle><circle cx="210" cy="40" r="5"></circle></g>
+        <g fill="#2E6E72" font-family="Mulish" font-size="12" font-weight="600">
+          <text x="62" y="106" text-anchor="middle">Piazza V. E. II</text>
+          <text x="330" y="96" text-anchor="middle">Porto Antico</text>
+          <text x="118" y="342" text-anchor="middle">Cala Porta Vecchia</text>
+          <text x="328" y="322" text-anchor="middle">Cattedrale</text>
+          <text x="210" y="28" text-anchor="middle">Castello Carlo V</text>
+        </g>
+      </svg>
+      <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:8px;">
+        <span style="width:18px;height:18px;background:#C2693F;border-radius:50% 50% 50% 0;transform:rotate(-45deg);box-shadow:0 4px 12px rgba(168,84,46,.5);"></span>
+        <span style="background:#14323A;color:#F5EFE3;font-size:11px;letter-spacing:.06em;font-weight:600;padding:5px 11px;border-radius:3px;white-space:nowrap;">Via Tenente Vasco 4</span>
+      </div>
+    </div>
+    <!-- list -->
+    <div data-reveal="">
+      <span style="font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:#A8542E;font-weight:600;" data-en="Location — all on foot">Posizione — tutto a piedi</span>
+      <h2 data-en="Right on the edge of the centro storico." style="margin:14px 0 14px;font-family:'Cormorant',serif;font-weight:500;color:#14323A;font-size:clamp(30px,4vw,52px);line-height:1.04;letter-spacing:-0.01em;max-width:14ch;">Sul bordo del centro storico.</h2>
+      <p data-en="On the edge of the old town, beside Piazza Vittorio Emanuele II. Leave the car outside and walk: everything that matters is minutes away." style="margin:0 0 26px;color:#3C5158;font-size:15px;font-weight:300;line-height:1.7;max-width:40ch;">A ridosso del centro storico, accanto a Piazza Vittorio Emanuele II. Lascia l'auto fuori e cammina: tutto ciò che conta è a pochi minuti.</p>
+      <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#8a7c5e;font-weight:600;margin-bottom:10px;" data-en="On foot · approximate">A piedi · indicativi</div>
+      <ul style="list-style:none;margin:0;padding:0;border-top:1px solid rgba(30,95,95,.22);">
+        <li style="display:flex;align-items:baseline;gap:12px;padding:13px 0;border-bottom:1px solid rgba(30,95,95,.22);"><span style="color:#14323A;font-size:clamp(15px,1.5vw,17px);" data-en="Piazza Vittorio Emanuele II / Villa Comunale">Piazza Vittorio Emanuele II / Villa Comunale</span><span style="flex:1;border-bottom:1px dotted rgba(30,95,95,.4);transform:translateY(-4px);"></span><span style="font-family:'Cormorant',serif;font-style:italic;font-size:20px;color:#2E6E72;white-space:nowrap;">2 min</span></li>
+        <li style="display:flex;align-items:baseline;gap:12px;padding:13px 0;border-bottom:1px solid rgba(30,95,95,.22);"><span style="color:#14323A;font-size:clamp(15px,1.5vw,17px);" data-en="Piazza Garibaldi (heart of the old town)">Piazza Garibaldi (cuore del centro storico)</span><span style="flex:1;border-bottom:1px dotted rgba(30,95,95,.4);transform:translateY(-4px);"></span><span style="font-family:'Cormorant',serif;font-style:italic;font-size:20px;color:#2E6E72;white-space:nowrap;">4 min</span></li>
+        <li style="display:flex;align-items:baseline;gap:12px;padding:13px 0;border-bottom:1px solid rgba(30,95,95,.22);"><span style="color:#14323A;font-size:clamp(15px,1.5vw,17px);" data-en="Porto Antico (old harbour)">Porto Antico (vecchio porto)</span><span style="flex:1;border-bottom:1px dotted rgba(30,95,95,.4);transform:translateY(-4px);"></span><span style="font-family:'Cormorant',serif;font-style:italic;font-size:20px;color:#2E6E72;white-space:nowrap;">5 min</span></li>
+        <li style="display:flex;align-items:baseline;gap:12px;padding:13px 0;border-bottom:1px solid rgba(30,95,95,.22);"><span style="color:#14323A;font-size:clamp(15px,1.5vw,17px);" data-en="Cattedrale della Madia">Cattedrale della Madia</span><span style="flex:1;border-bottom:1px dotted rgba(30,95,95,.4);transform:translateY(-4px);"></span><span style="font-family:'Cormorant',serif;font-style:italic;font-size:20px;color:#2E6E72;white-space:nowrap;">5 min</span></li>
+        <li style="display:flex;align-items:baseline;gap:12px;padding:13px 0;border-bottom:1px solid rgba(30,95,95,.22);"><span style="color:#14323A;font-size:clamp(15px,1.5vw,17px);" data-en="Castello Carlo V">Castello Carlo V</span><span style="flex:1;border-bottom:1px dotted rgba(30,95,95,.4);transform:translateY(-4px);"></span><span style="font-family:'Cormorant',serif;font-style:italic;font-size:20px;color:#2E6E72;white-space:nowrap;">7 min</span></li>
+        <li style="display:flex;align-items:baseline;gap:12px;padding:13px 0;border-bottom:1px solid rgba(30,95,95,.22);"><span style="color:#14323A;font-size:clamp(15px,1.5vw,17px);" data-en="Cala Porta Vecchia (town beach)">Cala Porta Vecchia (spiaggia in centro)</span><span style="flex:1;border-bottom:1px dotted rgba(30,95,95,.4);transform:translateY(-4px);"></span><span style="font-family:'Cormorant',serif;font-style:italic;font-size:20px;color:#2E6E72;white-space:nowrap;">7 min</span></li>
+        <li style="display:flex;align-items:baseline;gap:12px;padding:13px 0;border-bottom:1px solid rgba(30,95,95,.22);"><span style="color:#14323A;font-size:clamp(15px,1.5vw,17px);" data-en="Train station (trains to/from Bari)">Stazione ferroviaria (treni da/per Bari)</span><span style="flex:1;border-bottom:1px dotted rgba(30,95,95,.4);transform:translateY(-4px);"></span><span style="font-family:'Cormorant',serif;font-style:italic;font-size:20px;color:#2E6E72;white-space:nowrap;">12 min</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TEAL MOMENT ============ -->
+<section style="background:#1A535A;color:#F5EFE3;overflow:hidden;">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));align-items:stretch;">
+    <div data-reveal="" style="display:flex;flex-direction:column;justify-content:center;padding:clamp(60px,9vh,120px) clamp(28px,5vw,80px);">
+      <span style="color:#C0894F;display:inline-flex;margin-bottom:26px;" aria-hidden="true"><svg width="130" height="26" viewBox="0 0 160 34" fill="none"><path d="M16 17C55 17 95 17 144 17" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"></path><g fill="currentColor"><circle cx="78" cy="17" r="2"></circle><circle cx="86" cy="17" r="2"></circle><ellipse cx="48" cy="10" rx="8" ry="2.6" transform="rotate(-24 48 10)"></ellipse><ellipse cx="60" cy="24" rx="8" ry="2.6" transform="rotate(22 60 24)"></ellipse><ellipse cx="100" cy="10" rx="8" ry="2.6" transform="rotate(24 100 10)"></ellipse><ellipse cx="112" cy="24" rx="8" ry="2.6" transform="rotate(-22 112 24)"></ellipse></g></svg></span>
+      <blockquote data-en="“We wanted a home that feels like Puglia and like now — whitewashed light, bold colour, art on the walls. A place to hand over the keys to, along with the best address for dinner.”" style="margin:0;font-family:'Cormorant',serif;font-weight:500;font-size:clamp(28px,3.6vw,48px);line-height:1.18;letter-spacing:-0.005em;text-wrap:balance;">“Volevamo una casa che sapesse di Puglia e di presente — luce di calce, colore deciso, arte alle pareti. Una casa di cui consegnare le chiavi, insieme all'indirizzo giusto per cena.”</blockquote>
+      <span style="margin-top:28px;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,239,227,.72);font-weight:600;" data-en="— The hosts of la maison de margot">— I padroni di casa di la maison de margot</span>
+    </div>
+    <div style="position:relative;min-height:340px;overflow:hidden;">
+      <img data-parallax="0.08" src="assets/soggiorno-3.jpg" alt="Il soggiorno con tavolo in marmo verde e parete verde petrolio" style="position:absolute;left:0;top:-6%;width:100%;height:112%;object-fit:cover;object-position:center 20%;">
+    </div>
+  </div>
+</section>
+
+<!-- ============ MONOPOLI & DINTORNI ============ -->
+<section id="monopoli" style="scroll-margin-top:90px;background:#F5EFE3;padding:clamp(72px,10vh,130px) clamp(24px,6vw,90px);">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div data-reveal="" style="max-width:620px;margin-bottom:clamp(36px,5vw,56px);">
+      <span style="font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:#1E6E73;font-weight:600;" data-en="Monopoli &amp; around">Monopoli &amp; dintorni</span>
+      <h2 data-en="A white town between the sea and the trulli." style="margin:14px 0 18px;font-family:'Cormorant',serif;font-weight:500;color:#14323A;font-size:clamp(32px,4.6vw,62px);line-height:1.02;letter-spacing:-0.01em;">Una città bianca, tra il mare e i trulli.</h2>
+      <p data-en="Whitewashed alleys, baroque bell-towers, an old fishing port and coves of clear water. From the apartment you reach the heart of it on foot — and the rest of Puglia is an easy drive away." style="margin:0;color:#3C5158;font-size:clamp(16px,1.5vw,18px);font-weight:300;line-height:1.8;">Vicoli imbiancati a calce, campanili barocchi, un antico porto di pescatori e cale d'acqua limpida. Dall'appartamento raggiungi il cuore a piedi — e il resto della Puglia è a breve distanza in auto.</p>
+    </div>
+
+    <div data-reveal="" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;">
+      <figure style="position:relative;margin:0;grid-column:span 2;aspect-ratio:16/10;overflow:hidden;border-radius:4px;background:#ddd;">
+        <img src="assets/monopoli-2.jpg" alt="I tetti di Monopoli" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <figcaption style="position:absolute;left:0;bottom:0;right:0;padding:24px;background:linear-gradient(transparent,rgba(15,40,46,.7));color:#F5EFE3;font-family:'Cormorant',serif;font-size:clamp(20px,2.4vw,30px);" data-en="The old town, rooftop to rooftop">Il centro storico, tetto su tetto</figcaption>
+      </figure>
+      <figure style="position:relative;margin:0;aspect-ratio:4/5;overflow:hidden;border-radius:4px;background:#ddd;">
+        <img src="assets/monopoli-porto.jpg" alt="Il porto antico di Monopoli" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <figcaption style="position:absolute;left:0;bottom:0;right:0;padding:18px;background:linear-gradient(transparent,rgba(15,40,46,.7));color:#F5EFE3;font-family:'Cormorant',serif;font-size:clamp(18px,2vw,24px);" data-en="The old harbour">Il Porto Antico</figcaption>
+      </figure>
+      <figure style="position:relative;margin:0;aspect-ratio:4/5;overflow:hidden;border-radius:4px;background:#ddd;">
+        <img src="assets/centro-bianco.jpg" alt="Vicoli imbiancati a calce" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <figcaption style="position:absolute;left:0;bottom:0;right:0;padding:18px;background:linear-gradient(transparent,rgba(15,40,46,.7));color:#F5EFE3;font-family:'Cormorant',serif;font-size:clamp(18px,2vw,24px);" data-en="Whitewashed alleys">Vicoli di calce</figcaption>
+      </figure>
+      <figure style="position:relative;margin:0;grid-column:span 2;aspect-ratio:16/10;overflow:hidden;border-radius:4px;background:#ddd;">
+        <img src="assets/spiaggia-club.jpg" alt="Spiaggia con lido e acqua trasparente" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <figcaption style="position:absolute;left:0;bottom:0;right:0;padding:24px;background:linear-gradient(transparent,rgba(15,40,46,.7));color:#F5EFE3;font-family:'Cormorant',serif;font-size:clamp(20px,2.4vw,30px);" data-en="Beaches and lidos minutes away">Spiagge e lidi a pochi minuti</figcaption>
+      </figure>
+      <figure style="position:relative;margin:0;aspect-ratio:4/5;overflow:hidden;border-radius:4px;background:#ddd;">
+        <img src="assets/cala-1.jpg" alt="Cala d'acqua cristallina tra le rocce" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <figcaption style="position:absolute;left:0;bottom:0;right:0;padding:18px;background:linear-gradient(transparent,rgba(15,40,46,.7));color:#F5EFE3;font-family:'Cormorant',serif;font-size:clamp(18px,2vw,24px);" data-en="Crystal-clear coves">Cale d'acqua cristallina</figcaption>
+      </figure>
+      <figure style="position:relative;margin:0;aspect-ratio:4/5;overflow:hidden;border-radius:4px;background:#ddd;">
+        <img src="assets/finestra-mare.jpg" alt="Il mare incorniciato da una finestra in pietra" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <figcaption style="position:absolute;left:0;bottom:0;right:0;padding:18px;background:linear-gradient(transparent,rgba(15,40,46,.7));color:#F5EFE3;font-family:'Cormorant',serif;font-size:clamp(18px,2vw,24px);" data-en="The sea, framed in stone">Il mare, incorniciato nella pietra</figcaption>
+      </figure>
+    </div>
+
+    <div data-reveal="" style="margin-top:clamp(34px,4vw,52px);display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:clamp(20px,3vw,40px);">
+      <div style="border-top:1px solid rgba(30,95,95,.3);padding-top:18px;">
+        <h3 style="margin:0 0 8px;font-family:'Cormorant',serif;font-weight:600;color:#14323A;font-size:22px;">Polignano a Mare</h3>
+        <p data-en="The cliff-top town and Cala Porto — about 20 minutes by car or train." style="margin:0;color:#3C5158;font-size:14px;font-weight:300;line-height:1.65;">La città a picco sul mare e Cala Porto — circa 20 minuti in auto o treno.</p>
+      </div>
+      <div style="border-top:1px solid rgba(30,95,95,.3);padding-top:18px;">
+        <h3 style="margin:0 0 8px;font-family:'Cormorant',serif;font-weight:600;color:#14323A;font-size:22px;">Alberobello</h3>
+        <p data-en="The UNESCO trulli district — about 35 minutes inland." style="margin:0;color:#3C5158;font-size:14px;font-weight:300;line-height:1.65;">Il rione dei trulli, patrimonio UNESCO — circa 35 minuti nell'entroterra.</p>
+      </div>
+      <div style="border-top:1px solid rgba(30,95,95,.3);padding-top:18px;">
+        <h3 data-en="Coves &amp; beaches" style="margin:0 0 8px;font-family:'Cormorant',serif;font-weight:600;color:#14323A;font-size:22px;">Cale &amp; spiagge</h3>
+        <p data-en="Porto Bianco, Porto Rosso and the coast south of town — a few minutes by car." style="margin:0;color:#3C5158;font-size:14px;font-weight:300;line-height:1.65;">Porto Bianco, Porto Rosso e la costa a sud — pochi minuti in auto.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ESPERIENZE ============ -->
+<section id="esperienze" style="scroll-margin-top:90px;background:#E3EDEA;padding:clamp(72px,10vh,130px) clamp(24px,6vw,90px);">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div data-reveal="" style="text-align:center;max-width:640px;margin:0 auto clamp(40px,5vw,60px);">
+      <span style="font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:#A8542E;font-weight:600;" data-en="Special experiences">Esperienze speciali</span>
+      <h2 data-en="Real places worth slowing down for." style="margin:14px 0 0;font-family:'Cormorant',serif;font-weight:500;color:#14323A;font-size:clamp(30px,4.4vw,56px);line-height:1.04;letter-spacing:-0.01em;">Luoghi veri per cui vale la pena rallentare.</h2>
+    </div>
+
+    <!-- FEATURED -->
+    <figure data-reveal="" style="position:relative;margin:0 0 18px;border-radius:6px;overflow:hidden;min-height:clamp(320px,46vw,500px);background:#ddd;">
+      <img src="assets/monopoli-tramonto.jpg" alt="Tour in barca al tramonto lungo la costa adriatica" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1s ease;" style-hover="transform:scale(1.05);">
+      <div style="position:absolute;inset:0;background:linear-gradient(110deg,rgba(15,40,46,.62),rgba(15,40,46,.12) 60%,transparent);"></div>
+      <figcaption style="position:absolute;left:0;bottom:0;max-width:560px;padding:clamp(26px,4vw,48px);color:#F5EFE3;">
+        <span style="display:inline-block;background:rgba(245,239,227,.16);backdrop-filter:blur(4px);border:1px solid rgba(245,239,227,.3);border-radius:30px;padding:6px 14px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;margin-bottom:16px;" data-en="From Porto Antico · 5 min on foot">Dal Porto Antico · 5 min a piedi</span>
+        <h3 data-en="Boat tour among the sea caves" style="margin:0 0 10px;font-family:'Cormorant',serif;font-weight:500;font-size:clamp(28px,3.6vw,46px);line-height:1.05;">Tour in barca tra le grotte</h3>
+        <p data-en="Set out from the old harbour for the coves and sea caves of the Adriatic — best of all in the gold light before sunset." style="margin:0;font-size:clamp(14px,1.4vw,16px);font-weight:300;line-height:1.6;color:rgba(245,239,227,.92);max-width:46ch;">Si parte dal porto antico verso le cale e le grotte marine dell'Adriatico — ancora più belle nella luce dorata prima del tramonto.</p>
+      </figcaption>
+    </figure>
+
+    <!-- GRID -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(248px,1fr));gap:18px;">
+
+      <article data-reveal="" style="background:#FBF7EE;border-radius:5px;overflow:hidden;transition:transform .4s ease,box-shadow .4s ease;" style-hover="transform:translateY(-6px);box-shadow:0 24px 50px rgba(30,95,95,.16);">
+        <div style="position:relative;aspect-ratio:4/3;overflow:hidden;background:#ddd;"><img src="assets/polignano.jpg" alt="Polignano a Mare, le case a picco sul mare" style="width:100%;height:100%;object-fit:cover;display:block;"><span style="position:absolute;top:12px;left:12px;background:rgba(20,50,58,.82);color:#F5EFE3;font-size:10px;letter-spacing:.1em;font-weight:600;padding:5px 10px;border-radius:30px;" data-en="15 min by car">15 min in auto</span></div>
+        <div style="padding:22px 22px 26px;"><h3 style="margin:0 0 8px;font-family:'Cormorant',serif;font-weight:600;color:#14323A;font-size:25px;">Polignano a Mare</h3><p data-en="Whitewashed cliffs over Lama Monachile and the legendary Grotta Palazzese." style="margin:0;color:#3C5158;font-size:14px;font-weight:300;line-height:1.65;">Le case a picco su Lama Monachile e la leggendaria Grotta Palazzese.</p></div>
+      </article>
+
+      <article data-reveal="" data-delay="60" style="background:#FBF7EE;border-radius:5px;overflow:hidden;transition:transform .4s ease,box-shadow .4s ease;" style-hover="transform:translateY(-6px);box-shadow:0 24px 50px rgba(30,95,95,.16);">
+        <div style="position:relative;aspect-ratio:4/3;overflow:hidden;background:#ddd;"><img src="assets/spiaggia-1.jpg" alt="Spiaggia di sabbia e acqua turchese" style="width:100%;height:100%;object-fit:cover;display:block;"><span style="position:absolute;top:12px;left:12px;background:rgba(20,50,58,.82);color:#F5EFE3;font-size:10px;letter-spacing:.1em;font-weight:600;padding:5px 10px;border-radius:30px;" data-en="7 min on foot">7 min a piedi</span></div>
+        <div style="padding:22px 22px 26px;"><h3 data-en="Beaches &amp; coves" style="margin:0 0 8px;font-family:'Cormorant',serif;font-weight:600;color:#14323A;font-size:25px;">Spiagge &amp; cale</h3><p data-en="Cala Porta Vecchia in town, then Porto Bianco and Porto Rosso to the south." style="margin:0;color:#3C5158;font-size:14px;font-weight:300;line-height:1.65;">Cala Porta Vecchia in centro, poi Porto Bianco e Porto Rosso a sud.</p></div>
+      </article>
+
+      <article data-reveal="" data-delay="120" style="background:#FBF7EE;border-radius:5px;overflow:hidden;transition:transform .4s ease,box-shadow .4s ease;" style-hover="transform:translateY(-6px);box-shadow:0 24px 50px rgba(30,95,95,.16);">
+        <div style="position:relative;aspect-ratio:4/3;overflow:hidden;background:#ddd;"><img src="assets/alberobello.jpg" alt="Alberobello, i trulli dai tetti conici in pietra" style="width:100%;height:100%;object-fit:cover;display:block;"><span style="position:absolute;top:12px;left:12px;background:rgba(20,50,58,.82);color:#F5EFE3;font-size:10px;letter-spacing:.1em;font-weight:600;padding:5px 10px;border-radius:30px;" data-en="35 min by car">35 min in auto</span></div>
+        <div style="padding:22px 22px 26px;"><h3 data-en="Alberobello, the trulli" style="margin:0 0 8px;font-family:'Cormorant',serif;font-weight:600;color:#14323A;font-size:25px;">Alberobello, i trulli</h3><p data-en="The UNESCO district of conical stone roofs, in the heart of the Valle d'Itria." style="margin:0;color:#3C5158;font-size:14px;font-weight:300;line-height:1.65;">Il rione UNESCO dei tetti coni in pietra, nel cuore della Valle d'Itria.</p></div>
+      </article>
+
+      <article data-reveal="" style="background:#FBF7EE;border-radius:5px;overflow:hidden;transition:transform .4s ease,box-shadow .4s ease;" style-hover="transform:translateY(-6px);box-shadow:0 24px 50px rgba(30,95,95,.16);">
+        <div style="position:relative;aspect-ratio:4/3;overflow:hidden;background:#ddd;"><img src="assets/piazza-notte.jpg" alt="Le sere nel centro storico di Monopoli" style="width:100%;height:100%;object-fit:cover;display:block;"><span style="position:absolute;top:12px;left:12px;background:rgba(20,50,58,.82);color:#F5EFE3;font-size:10px;letter-spacing:.1em;font-weight:600;padding:5px 10px;border-radius:30px;" data-en="on your doorstep">sull'uscio di casa</span></div>
+        <div style="padding:22px 22px 26px;"><h3 data-en="Evenings in the old town" style="margin:0 0 8px;font-family:'Cormorant',serif;font-weight:600;color:#14323A;font-size:25px;">Sere nel centro storico</h3><p data-en="Raw-fish counters, wine bars and gelato among the lamplit alleys — all on foot." style="margin:0;color:#3C5158;font-size:14px;font-weight:300;line-height:1.65;">Crudi di mare, enoteche e gelato tra i vicoli illuminati — tutto a piedi.</p></div>
+      </article>
+
+      <article data-reveal="" data-delay="60" style="background:#FBF7EE;border-radius:5px;overflow:hidden;transition:transform .4s ease,box-shadow .4s ease;" style-hover="transform:translateY(-6px);box-shadow:0 24px 50px rgba(30,95,95,.16);">
+        <div style="position:relative;aspect-ratio:4/3;overflow:hidden;background:#ddd;"><img src="assets/castellana.jpg" alt="Grotte di Castellana, stalattiti e stalagmiti sotterranee" style="width:100%;height:100%;object-fit:cover;display:block;"><span style="position:absolute;top:12px;left:12px;background:rgba(20,50,58,.82);color:#F5EFE3;font-size:10px;letter-spacing:.1em;font-weight:600;padding:5px 10px;border-radius:30px;" data-en="25 min by car">25 min in auto</span></div>
+        <div style="padding:22px 22px 26px;"><h3 data-en="Castellana caves" style="margin:0 0 8px;font-family:'Cormorant',serif;font-weight:600;color:#14323A;font-size:25px;">Grotte di Castellana</h3><p data-en="A cathedral of stalactites three kilometres underground — Puglia's great cave system." style="margin:0;color:#3C5158;font-size:14px;font-weight:300;line-height:1.65;">Una cattedrale di stalattiti tre chilometri sottoterra — le grandi grotte di Puglia.</p></div>
+      </article>
+
+      <article data-reveal="" data-delay="120" style="background:#FBF7EE;border-radius:5px;overflow:hidden;transition:transform .4s ease,box-shadow .4s ease;" style-hover="transform:translateY(-6px);box-shadow:0 24px 50px rgba(30,95,95,.16);">
+        <div style="position:relative;aspect-ratio:4/3;overflow:hidden;background:#ddd;"><img src="assets/masseria.jpg" alt="Grappoli d'uva dorata al tramonto durante la vendemmia" style="width:100%;height:100%;object-fit:cover;display:block;"><span style="position:absolute;top:12px;left:12px;background:rgba(20,50,58,.82);color:#F5EFE3;font-size:10px;letter-spacing:.1em;font-weight:600;padding:5px 10px;border-radius:30px;" data-en="20 min by car">20 min in auto</span></div>
+        <div style="padding:22px 22px 26px;"><h3 data-en="Tasting at a masseria" style="margin:0 0 8px;font-family:'Cormorant',serif;font-weight:600;color:#14323A;font-size:25px;">Degustazione in masseria</h3><p data-en="Extra-virgin oil, Primitivo and a hands-on orecchiette class on a working farm." style="margin:0;color:#3C5158;font-size:14px;font-weight:300;line-height:1.65;">Olio extravergine, Primitivo e un corso di orecchiette in una masseria autentica.</p></div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ BAR SUL MARE ============ -->
+<section id="bar" style="scroll-margin-top:90px;background:#F5EFE3;padding:clamp(72px,10vh,130px) 0;overflow:hidden;">
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(24px,6vw,90px);">
+    <div data-reveal="" style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:28px;">
+      <div>
+        <span style="font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:#1E6E73;font-weight:600;" data-en="The seaside pool bar">Il bar sul mare</span>
+        <h2 data-en="Aperitivo with your feet over the water." style="margin:14px 0 0;font-family:'Cormorant',serif;font-weight:500;color:#14323A;font-size:clamp(32px,4.6vw,62px);line-height:1.02;letter-spacing:-0.01em;max-width:15ch;">Un aperitivo con i piedi sull'acqua.</h2>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px;max-width:360px;">
+        <p data-en="A few minutes from the apartment, the sea-facing rooftop of Bellavista Suite — sun loungers, hammocks and a small infinity pool perched on the rock, right over the Adriatic." style="margin:0;color:#3C5158;font-size:15px;font-weight:300;line-height:1.7;">A pochi minuti dall'appartamento, la terrazza sul mare di Bellavista Suite — lettini, amache e una piccola piscina a sfioro a picco sulla roccia, proprio sull'Adriatico.</p>
+        <a href="https://bellavistamonopoli.it" target="_blank" rel="noopener" style="align-self:flex-start;display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(30,110,115,.45);color:#1E6E73;border-radius:30px;padding:8px 16px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;text-decoration:none;transition:background .3s,color .3s;" style-hover="background:#1E6E73;color:#F5EFE3;"><span style="width:6px;height:6px;background:currentColor;border-radius:50%;"></span><span data-en="Bellavista Suite · Via San Vito 11">Bellavista Suite · Via San Vito 11</span></a>
+      </div>
+    </div>
+  </div>
+  <div data-reveal="" style="margin:clamp(34px,5vw,56px) 0 16px;padding:0 clamp(24px,6vw,90px);">
+    <button data-full="assets/bar-pool-3.jpg" data-cap="Lettini, amache e l'aperitivo sull'acqua" data-cap-en="Loungers, hammocks and aperitivo over the water" style="display:block;width:100%;border:none;padding:0;cursor:pointer;overflow:hidden;border-radius:5px;background:#ddd;aspect-ratio:21/9;">
+      <img src="assets/bar-pool-3.jpg" alt="Bar con piscina sul mare — lettini e amache" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .9s ease;" style-hover="transform:scale(1.04);">
+    </button>
+  </div>
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(24px,6vw,90px);">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;">
+      <button data-full="assets/bar-pool-1.jpg" data-cap="La piscina a sfioro sul mare" data-cap-en="The infinity pool over the sea" data-reveal="" style="border:none;padding:0;cursor:pointer;overflow:hidden;border-radius:4px;background:#ddd;aspect-ratio:3/2;"><img src="assets/bar-pool-1.jpg" alt="Piscina a sfioro con sedute vista mare" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s ease;" style-hover="transform:scale(1.06);"></button>
+      <button data-full="assets/bar-pool-2.jpg" data-cap="Sedute e dettagli vista mare" data-cap-en="Sea-view seating and details" data-reveal="" data-delay="70" style="border:none;padding:0;cursor:pointer;overflow:hidden;border-radius:4px;background:#ddd;aspect-ratio:3/2;"><img src="assets/bar-pool-2.jpg" alt="Sedute in rattan e lampada vista mare" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s ease;" style-hover="transform:scale(1.06);"></button>
+      <button data-full="assets/bar-pool-vista.jpg" data-cap="Piscina e orizzonte adriatico" data-cap-en="Pool and the Adriatic horizon" data-reveal="" data-delay="140" style="border:none;padding:0;cursor:pointer;overflow:hidden;border-radius:4px;background:#ddd;aspect-ratio:3/2;"><img src="assets/bar-pool-vista.jpg" alt="Piscina a sfioro e orizzonte sul mare" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s ease;" style-hover="transform:scale(1.06);"></button>
+      <button data-full="assets/bar-pool-jacuzzi.jpg" data-cap="Idromassaggio fronte mare" data-cap-en="Sea-front hot tub" data-reveal="" style="border:none;padding:0;cursor:pointer;overflow:hidden;border-radius:4px;background:#ddd;aspect-ratio:3/2;"><img src="assets/bar-pool-jacuzzi.jpg" alt="Vasca idromassaggio con vista sul mare" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s ease;" style-hover="transform:scale(1.06);"></button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COME RAGGIUNGERCI ============ -->
+<section id="come-arrivare" style="scroll-margin-top:90px;background:#F5EFE3;padding:clamp(72px,10vh,130px) clamp(24px,6vw,90px);">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div data-reveal="" style="max-width:560px;margin-bottom:clamp(36px,5vw,54px);">
+      <span style="font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:#1E6E73;font-weight:600;" data-en="Getting here">Come raggiungerci</span>
+      <h2 data-en="Easy to reach, easier once you're here." style="margin:14px 0 0;font-family:'Cormorant',serif;font-weight:500;color:#14323A;font-size:clamp(30px,4.2vw,54px);line-height:1.04;letter-spacing:-0.01em;">Facile arrivare, ancora più facile restare.</h2>
+    </div>
+    <div data-reveal="" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:clamp(22px,3vw,40px);">
+      <div>
+        <div style="font-family:'Cormorant',serif;font-style:italic;font-size:32px;color:#C0673D;margin-bottom:8px;">01</div>
+        <h3 data-en="By train" style="margin:0 0 8px;font-family:'Cormorant',serif;font-weight:600;color:#14323A;font-size:23px;">In treno</h3>
+        <p data-en="Direct trains from Bari to Monopoli station — about 12 minutes on foot from the apartment." style="margin:0;color:#3C5158;font-size:14.5px;font-weight:300;line-height:1.7;">Treni diretti da Bari alla stazione di Monopoli — circa 12 minuti a piedi dall'appartamento.</p>
+      </div>
+      <div>
+        <div style="font-family:'Cormorant',serif;font-style:italic;font-size:32px;color:#C0673D;margin-bottom:8px;">02</div>
+        <h3 data-en="Transfers &amp; taxi" style="margin:0 0 8px;font-family:'Cormorant',serif;font-weight:600;color:#14323A;font-size:23px;">NCC &amp; taxi</h3>
+        <p data-en="We can arrange a private transfer from Bari airport or the station — just ask." style="margin:0;color:#3C5158;font-size:14.5px;font-weight:300;line-height:1.7;">Possiamo organizzare un transfer privato dall'aeroporto di Bari o dalla stazione — chiedi pure.</p>
+      </div>
+      <div>
+        <div style="font-family:'Cormorant',serif;font-style:italic;font-size:32px;color:#C0673D;margin-bottom:8px;">03</div>
+        <h3 data-en="By car" style="margin:0 0 8px;font-family:'Cormorant',serif;font-weight:600;color:#14323A;font-size:23px;">In auto</h3>
+        <p data-en="A compact car is ideal for day trips. Park outside the old town and walk in." style="margin:0;color:#3C5158;font-size:14.5px;font-weight:300;line-height:1.7;">Un'auto compatta è l'ideale per le gite. Parcheggia fuori dal centro storico e raggiungici a piedi.</p>
+      </div>
+      <div style="background:#1A535A;color:#F5EFE3;border-radius:5px;padding:22px;">
+        <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#C0894F;font-weight:700;margin-bottom:10px;">ZTL</div>
+        <p data-en="The centro storico is a limited-traffic zone (ZTL). Arrange a transfer or park outside and walk — we'll send clear directions." style="margin:0;color:rgba(245,239,227,.9);font-size:14px;font-weight:300;line-height:1.7;">Il centro storico è zona a traffico limitato (ZTL). Organizza un transfer o parcheggia fuori e cammina — ti inviamo indicazioni chiare.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RECENSIONI ============ -->
+<section id="recensioni" style="scroll-margin-top:90px;background:#143A42;color:#F5EFE3;padding:clamp(72px,10vh,130px) clamp(24px,6vw,90px);">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div data-reveal="" style="text-align:center;margin-bottom:clamp(40px,5vw,60px);">
+      <span style="font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:#C0894F;font-weight:600;" data-en="What guests say">Cosa dicono di noi</span>
+      <h2 data-en="Words from those who've stayed." style="margin:14px 0 0;font-family:'Cormorant',serif;font-weight:500;font-size:clamp(30px,4.2vw,54px);line-height:1.04;color:#F5EFE3;">Le parole di chi è stato qui.</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:clamp(22px,3vw,40px);">
+      <figure data-reveal="" style="margin:0;border-top:1px solid rgba(245,239,227,.2);padding-top:24px;">
+        <div style="color:#C0894F;letter-spacing:3px;font-size:13px;margin-bottom:14px;">★★★★★</div>
+        <blockquote data-en="“The most beautiful apartment we found in Puglia. Design everywhere, spotless, and you can walk to the sea in five minutes. We'll be back.”" style="margin:0;font-family:'Cormorant',serif;font-style:italic;font-weight:400;font-size:clamp(20px,2vw,26px);line-height:1.4;color:#F5EFE3;">“L'appartamento più bello trovato in Puglia. Design ovunque, pulizia impeccabile, e il mare a cinque minuti a piedi. Torneremo.”</blockquote>
+        <figcaption style="margin-top:18px;font-size:13px;letter-spacing:.04em;color:rgba(245,239,227,.7);">Giulia &amp; Marco — Milano</figcaption>
+      </figure>
+      <figure data-reveal="" data-delay="80" style="margin:0;border-top:1px solid rgba(245,239,227,.2);padding-top:24px;">
+        <div style="color:#C0894F;letter-spacing:3px;font-size:13px;margin-bottom:14px;">★★★★★</div>
+        <blockquote data-en="“A real home, full of character. The hosts gave us the perfect list of restaurants. The teal living room is even better in person.”" style="margin:0;font-family:'Cormorant',serif;font-style:italic;font-weight:400;font-size:clamp(20px,2vw,26px);line-height:1.4;color:#F5EFE3;">“Una casa vera, piena di carattere. I padroni di casa ci hanno dato la lista perfetta dei ristoranti. Il salotto verde è ancora più bello dal vivo.”</blockquote>
+        <figcaption style="margin-top:18px;font-size:13px;letter-spacing:.04em;color:rgba(245,239,227,.7);">Sophie — Lyon</figcaption>
+      </figure>
+      <figure data-reveal="" data-delay="160" style="margin:0;border-top:1px solid rgba(245,239,227,.2);padding-top:24px;">
+        <div style="color:#C0894F;letter-spacing:3px;font-size:13px;margin-bottom:14px;">★★★★★</div>
+        <blockquote data-en="“Position is everything and this is perfect — piazza, port and cathedral all on foot. Quiet at night, beautiful by day.”" style="margin:0;font-family:'Cormorant',serif;font-style:italic;font-weight:400;font-size:clamp(20px,2vw,26px);line-height:1.4;color:#F5EFE3;">“La posizione è tutto e questa è perfetta — piazza, porto e cattedrale tutti a piedi. Silenziosa di notte, bellissima di giorno.”</blockquote>
+        <figcaption style="margin-top:18px;font-size:13px;letter-spacing:.04em;color:rgba(245,239,227,.7);">Andreas — Berlin</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRENOTA / CONTATTI ============ -->
+<section id="contatti" style="scroll-margin-top:90px;background:#F5EFE3;padding:clamp(72px,10vh,130px) clamp(24px,6vw,90px);">
+  <div style="max-width:1120px;margin:0 auto;">
+    <div data-reveal="">
+      <span style="font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:#A8542E;font-weight:600;" data-en="Book / contact">Prenota / Contatti</span>
+      <h2 data-en="Request your dates." style="margin:14px 0 16px;font-family:'Cormorant',serif;font-weight:500;color:#14323A;font-size:clamp(32px,4.4vw,58px);line-height:1.02;letter-spacing:-0.01em;">Richiedi le tue date.</h2>
+      <p data-en="Tell us when you'd like to come and we'll reply quickly, by email or WhatsApp." style="margin:0 0 28px;color:#3C5158;font-size:16px;font-weight:300;line-height:1.7;max-width:42ch;">Raccontaci quando vorresti venire e ti risponderemo in fretta, via email o WhatsApp.</p>
+      <div style="margin:0 0 30px;max-width:560px;">
+        <div style="display:flex;flex-wrap:wrap;gap:12px;">
+          <a href="#" data-booking="" style="flex:1;min-width:150px;display:inline-flex;align-items:center;justify-content:center;gap:9px;background:#1E6E73;color:#F5EFE3;text-decoration:none;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;padding:15px 18px;border-radius:7px;border:1px solid #1E6E73;transition:background .3s,transform .3s,box-shadow .3s;" style-hover="background:#185B60;transform:translateY(-2px);box-shadow:0 10px 24px rgba(30,110,115,.28);"><span data-en="Book on Booking">Prenota su Booking</span></a>
+          <a href="#" data-airbnb="" style="flex:1;min-width:150px;display:inline-flex;align-items:center;justify-content:center;gap:9px;background:transparent;color:#1E6E73;text-decoration:none;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;padding:15px 18px;border-radius:7px;border:1px solid rgba(30,110,115,.5);transition:background .3s,color .3s,transform .3s,box-shadow .3s;" style-hover="background:#1E6E73;color:#F5EFE3;border-color:#1E6E73;transform:translateY(-2px);box-shadow:0 10px 24px rgba(30,110,115,.22);"><span data-en="Book on Airbnb">Prenota su Airbnb</span></a>
+        </div>
+        <span style="display:block;margin-top:11px;font-size:11px;letter-spacing:.06em;color:#8a7c5e;" data-en="Direct booking links — coming soon">Link diretti di prenotazione — in arrivo</span>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:18px 48px;">
+        <a href="https://wa.me/390000000000" style="display:flex;align-items:center;gap:13px;text-decoration:none;color:#14323A;font-size:15px;"><span style="width:38px;height:38px;border-radius:50%;background:#1A535A;color:#F5EFE3;display:flex;align-items:center;justify-content:center;font-size:12px;letter-spacing:.04em;flex:none;">Wa</span><span><span style="display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#8a7c5e;">WhatsApp</span>+39 000 000 0000</span></a>
+        <a href="mailto:ciao@lamaisondemargot.it" style="display:flex;align-items:center;gap:13px;text-decoration:none;color:#14323A;font-size:15px;"><span style="width:38px;height:38px;border-radius:50%;background:#1A535A;color:#F5EFE3;display:flex;align-items:center;justify-content:center;font-size:12px;flex:none;">@</span><span><span style="display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#8a7c5e;">Email</span>ciao@lamaisondemargot.it</span></a>
+        <div style="display:flex;align-items:flex-start;gap:13px;color:#14323A;font-size:15px;"><span style="width:38px;height:38px;border-radius:50%;background:#1A535A;color:#F5EFE3;display:flex;align-items:center;justify-content:center;font-size:14px;flex:none;">◍</span><span><span style="display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#8a7c5e;" data-en="Address">Indirizzo</span>Via Tenente Vasco 4 · 70043 Monopoli (BA)</span></div>
+        <div style="display:flex;gap:12px;margin-top:10px;">
+          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram" style="display:inline-flex;align-items:center;gap:10px;height:44px;padding:0 18px 0 14px;border:1px solid rgba(20,50,58,.22);border-radius:30px;color:#14323A;text-decoration:none;font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;transition:background .3s,color .3s,border-color .3s;" style-hover="background:#14323A;color:#F5EFE3;border-color:#14323A;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5.4"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg><span>Instagram</span></a>
+          <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook" style="display:inline-flex;align-items:center;gap:10px;height:44px;padding:0 18px 0 14px;border:1px solid rgba(20,50,58,.22);border-radius:30px;color:#14323A;text-decoration:none;font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;transition:background .3s,color .3s,border-color .3s;" style-hover="background:#14323A;color:#F5EFE3;border-color:#14323A;"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M14 8.5V7c0-.7.3-1 1-1h1.5V3H14c-2.2 0-3.5 1.3-3.5 3.6v1.9H8.5v3h2V21h3.5v-9.5h2.4l.4-3H14z"/></svg><span>Facebook</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer style="background:#0E2A30;color:rgba(245,239,227,.78);padding:clamp(54px,7vh,84px) clamp(24px,6vw,90px) 40px;">
+  <div style="max-width:1120px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:36px;align-items:start;">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <span style="width:52px;height:52px;border:1px solid rgba(245,239,227,.4);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant',serif;font-style:italic;font-size:26px;color:#F5EFE3;flex:none;">m</span>
+      <span style="font-family:'Cormorant',serif;font-size:24px;color:#F5EFE3;line-height:1.05;">la maison<br><span style="font-style:italic;">de margot</span></span>
+    </div>
+    <div>
+      <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#C0894F;font-weight:600;margin-bottom:14px;" data-en="Explore">Naviga</div>
+      <div style="display:flex;flex-direction:column;gap:9px;font-size:14px;">
+        <a href="#top" style="color:rgba(245,239,227,.78);text-decoration:none;" data-en="Home">Home</a>
+        <a href="#appartamento" style="color:rgba(245,239,227,.78);text-decoration:none;" data-en="The apartment">L'appartamento</a>
+        <a href="#contatti" style="color:rgba(245,239,227,.78);text-decoration:none;" data-en="Book">Prenota</a>
+        <a href="#" style="color:rgba(245,239,227,.78);text-decoration:none;">Privacy</a>
+        <a href="#" style="color:rgba(245,239,227,.78);text-decoration:none;">Cookie</a>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#C0894F;font-weight:600;margin-bottom:14px;" data-en="Contact">Contatti</div>
+      <div style="display:flex;flex-direction:column;gap:9px;font-size:14px;">
+        <span>Via Tenente Vasco 4</span><span>70043 Monopoli (BA), Italia</span>
+        <a href="mailto:ciao@lamaisondemargot.it" style="color:rgba(245,239,227,.78);text-decoration:none;">ciao@lamaisondemargot.it</a>
+        <span>+39 000 000 0000</span>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#C0894F;font-weight:600;margin-bottom:14px;" data-en="Follow">Seguici</div>
+      <div style="display:flex;gap:10px;"><a href="#" style="display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border:1px solid rgba(245,239,227,.3);border-radius:50%;color:#F5EFE3;text-decoration:none;font-size:11px;">Ig</a><a href="#" style="display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border:1px solid rgba(245,239,227,.3);border-radius:50%;color:#F5EFE3;text-decoration:none;font-size:11px;">Fb</a></div>
+    </div>
+  </div>
+  <div style="max-width:1120px;margin:40px auto 0;padding-top:24px;border-top:1px solid rgba(245,239,227,.14);display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;font-size:12px;color:rgba(245,239,227,.5);">
+    <span>© 2026 la maison de margot · Monopoli, Puglia</span>
+    <span data-en="Made with care in the centro storico">Fatto con cura nel centro storico</span>
+  </div>
+</footer>
+
+<!-- ============ LIGHTBOX ============ -->
+<div id="lightbox" style="position:fixed;inset:0;z-index:120;background:rgba(18,22,20,.94);display:none;align-items:center;justify-content:center;flex-direction:column;padding:clamp(20px,5vw,70px);">
+  <button id="lb-close" style="position:absolute;top:22px;right:24px;width:48px;height:48px;border:1px solid rgba(245,239,227,.4);border-radius:50%;background:none;color:#F5EFE3;cursor:pointer;font-size:22px;line-height:1;transition:background .3s;" style-hover="background:rgba(245,239,227,.14);">×</button>
+  <button id="lb-prev" style="position:absolute;left:18px;top:50%;transform:translateY(-50%);width:52px;height:52px;border:1px solid rgba(245,239,227,.35);border-radius:50%;background:none;color:#F5EFE3;cursor:pointer;font-size:22px;transition:background .3s;" style-hover="background:rgba(245,239,227,.14);">‹</button>
+  <button id="lb-next" style="position:absolute;right:18px;top:50%;transform:translateY(-50%);width:52px;height:52px;border:1px solid rgba(245,239,227,.35);border-radius:50%;background:none;color:#F5EFE3;cursor:pointer;font-size:22px;transition:background .3s;" style-hover="background:rgba(245,239,227,.14);">›</button>
+  <img id="lightbox-img" alt="" style="max-width:100%;max-height:80vh;object-fit:contain;border-radius:3px;box-shadow:0 30px 80px rgba(0,0,0,.5);">
+  <div id="lightbox-cap" style="margin-top:18px;color:rgba(245,239,227,.82);font-family:'Cormorant',serif;font-style:italic;font-size:clamp(16px,2vw,22px);text-align:center;"></div>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900},&quot;defaultHero&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;tramonto&quot;,&quot;editoriale&quot;,&quot;notturno&quot;],&quot;default&quot;:&quot;tramonto&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#1E6E73&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;showSwitcher&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  componentDidMount() {
+    const root = document.getElementById('lmdm-root');
+    if (!root) return;
+    this.root = root;
+    this.lang = 'it';
+    try { this._initHeader(); } catch (e) {}
+    try { this._initMenu(); } catch (e) {}
+    try { this._initHero(); } catch (e) {}
+    try { this._initLang(); } catch (e) {}
+    try { this._initReveal(); } catch (e) {}
+    try { this._initParallax(); } catch (e) {}
+    try { this._initLightbox(); } catch (e) {}
+    try { this._initForm(); } catch (e) {}
+    try { this._applyProps(); } catch (e) {}
+  }
+
+  _applyProps() {
+    const accent = this.props.accent || '#1E6E73';
+    this.root.querySelectorAll('[data-accent-bg]').forEach(el => { el.style.background = accent; });
+    const sw = this.props.showSwitcher;
+    if (sw === false) {
+      const s = this.root.querySelector('[data-switcher]');
+      if (s) s.style.display = 'none';
+    }
+    const dh = this.props.defaultHero;
+    if (dh && this._setHero) this._setHero(dh);
+  }
+
+  _initHeader() {
+    const hdr = document.getElementById('topbar');
+    if (!hdr) return;
+    const setSolid = (s) => {
+      if (s) {
+        hdr.style.background = 'rgba(245,239,227,.95)';
+        hdr.style.backdropFilter = 'blur(10px)';
+        hdr.style.boxShadow = '0 1px 0 rgba(20,50,58,.08)';
+        hdr.style.paddingTop = '13px';
+        hdr.style.paddingBottom = '13px';
+      } else {
+        hdr.style.background = 'linear-gradient(180deg,rgba(15,40,46,.45),rgba(15,40,46,0))';
+        hdr.style.backdropFilter = 'none';
+        hdr.style.boxShadow = 'none';
+        hdr.style.paddingTop = '20px';
+        hdr.style.paddingBottom = '20px';
+      }
+      hdr.querySelectorAll('[data-hdr-ink]').forEach(el => { el.style.color = s ? '#14323A' : '#F5EFE3'; });
+    };
+    const onScroll = () => setSolid(window.scrollY > 80);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  _initMenu() {
+    const ov = document.getElementById('menu-overlay');
+    if (!ov) return;
+    const close = () => { ov.style.display = 'none'; document.body.style.overflow = ''; };
+    this.root.querySelectorAll('[data-menu-open]').forEach(b => b.addEventListener('click', () => {
+      ov.style.display = 'flex';
+      ov.style.animation = 'sink .4s ease both';
+      document.body.style.overflow = 'hidden';
+    }));
+    this.root.querySelectorAll('[data-menu-close]').forEach(b => b.addEventListener('click', close));
+    ov.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', close));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && ov.style.display === 'flex') close(); });
+  }
+
+  _initHero() {
+    const btns = this.root.querySelectorAll('[data-hero-btn]');
+    const setHero = (name) => {
+      this.root.querySelectorAll('[data-hero]').forEach(p => {
+        p.style.display = (p.getAttribute('data-hero') === name) ? '' : 'none';
+      });
+      btns.forEach(b => {
+        const on = b.getAttribute('data-hero-btn') === name;
+        b.style.background = on ? '#14323A' : 'transparent';
+        b.style.color = on ? '#F5EFE3' : '#14323A';
+      });
+      window.dispatchEvent(new Event('scroll'));
+    };
+    this._setHero = setHero;
+    btns.forEach(b => b.addEventListener('click', () => setHero(b.getAttribute('data-hero-btn'))));
+  }
+
+  _initLang() {
+    const apply = (lang) => {
+      this.lang = lang;
+      this.root.querySelectorAll('[data-en]').forEach(el => {
+        if (!el.hasAttribute('data-it')) el.setAttribute('data-it', el.textContent);
+        el.textContent = (lang === 'en') ? el.getAttribute('data-en') : el.getAttribute('data-it');
+      });
+      this.root.querySelectorAll('[data-en-ph]').forEach(el => {
+        if (!el.hasAttribute('data-it-ph')) el.setAttribute('data-it-ph', el.getAttribute('placeholder') || '');
+        el.setAttribute('placeholder', (lang === 'en') ? el.getAttribute('data-en-ph') : el.getAttribute('data-it-ph'));
+      });
+      this.root.querySelectorAll('[data-lang-btn]').forEach(b => {
+        const on = b.getAttribute('data-lang-btn') === lang;
+        b.style.fontWeight = on ? '700' : '400';
+        b.style.opacity = on ? '1' : '.55';
+      });
+    };
+    this.root.querySelectorAll('[data-lang-btn]').forEach(b => b.addEventListener('click', () => apply(b.getAttribute('data-lang-btn'))));
+    apply('it');
+  }
+
+  _initReveal() {
+    const els = this.root.querySelectorAll('[data-reveal]');
+    if (!('IntersectionObserver' in window)) return;
+    const io = new IntersectionObserver((ents) => {
+      ents.forEach(e => {
+        if (e.isIntersecting) {
+          const el = e.target;
+          const d = el.getAttribute('data-delay') || '0';
+          el.style.animation = 'revealUp .95s cubic-bezier(.2,.7,.2,1) ' + d + 'ms both';
+          io.unobserve(el);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(el => io.observe(el));
+  }
+
+  _initParallax() {
+    const layers = this.root.querySelectorAll('[data-parallax]');
+    const onScroll = () => {
+      const y = window.scrollY;
+      layers.forEach(l => {
+        if (l.offsetParent === null) return;
+        const f = parseFloat(l.getAttribute('data-parallax')) || 0.2;
+        l.style.transform = 'translate3d(0,' + (y * f) + 'px,0)';
+      });
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  _initLightbox() {
+    const lb = document.getElementById('lightbox');
+    const img = document.getElementById('lightbox-img');
+    const cap = document.getElementById('lightbox-cap');
+    if (!lb || !img) return;
+    const thumbs = [...this.root.querySelectorAll('[data-full]')];
+    let i = 0;
+    const show = (n) => {
+      i = (n + thumbs.length) % thumbs.length;
+      const t = thumbs[i];
+      img.src = t.getAttribute('data-full');
+      const c = (this.lang === 'en') ? (t.getAttribute('data-cap-en') || t.getAttribute('data-cap') || '') : (t.getAttribute('data-cap') || '');
+      if (cap) cap.textContent = c;
+    };
+    const open = (n) => { show(n); lb.style.display = 'flex'; lb.style.animation = 'sink .35s ease both'; document.body.style.overflow = 'hidden'; };
+    const close = () => { lb.style.display = 'none'; document.body.style.overflow = ''; };
+    thumbs.forEach((t, n) => t.addEventListener('click', () => open(n)));
+    const next = document.getElementById('lb-next');
+    const prev = document.getElementById('lb-prev');
+    const cl = document.getElementById('lb-close');
+    if (next) next.addEventListener('click', e => { e.stopPropagation(); show(i + 1); });
+    if (prev) prev.addEventListener('click', e => { e.stopPropagation(); show(i - 1); });
+    if (cl) cl.addEventListener('click', close);
+    lb.addEventListener('click', e => { if (e.target === lb) close(); });
+    document.addEventListener('keydown', e => {
+      if (lb.style.display !== 'flex') return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowRight') show(i + 1);
+      if (e.key === 'ArrowLeft') show(i - 1);
+    });
+  }
+
+  _initForm() {
+    const f = document.getElementById('booking-form');
+    if (!f) return;
+    f.addEventListener('submit', e => {
+      e.preventDefault();
+      const ok = document.getElementById('form-ok');
+      if (ok) { ok.style.display = 'block'; ok.style.animation = 'sink .4s ease both'; }
+      const btn = f.querySelector('[data-submit]');
+      if (btn) btn.style.display = 'none';
+    });
+  }
+
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>
