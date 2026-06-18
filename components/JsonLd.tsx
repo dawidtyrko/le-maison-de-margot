@@ -15,21 +15,6 @@ const amenities = [
   "Self check-in",
 ];
 
-const reviews = [
-  {
-    author: "Giulia & Marco",
-    body: "L'appartamento più bello trovato in Puglia. Design ovunque, pulizia impeccabile, e il mare a cinque minuti a piedi.",
-  },
-  {
-    author: "Sophie",
-    body: "Una casa vera, piena di carattere. I padroni di casa ci hanno dato la lista perfetta dei ristoranti.",
-  },
-  {
-    author: "Andreas",
-    body: "La posizione è tutto e questa è perfetta — piazza, porto e cattedrale tutti a piedi.",
-  },
-];
-
 export function JsonLd() {
   const data = {
     "@context": "https://schema.org",
@@ -70,22 +55,8 @@ export function JsonLd() {
       name,
       value: true,
     })),
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "5",
-      bestRating: "5",
-      reviewCount: reviews.length,
-    },
-    review: reviews.map((r) => ({
-      "@type": "Review",
-      author: { "@type": "Person", name: r.author },
-      reviewRating: {
-        "@type": "Rating",
-        ratingValue: "5",
-        bestRating: "5",
-      },
-      reviewBody: r.body,
-    })),
+    // aggregateRating / review intentionally omitted until there are genuine
+    // guest reviews — fabricated rating markup violates Google's guidelines.
     sameAs: [CONTACT.instagram, CONTACT.facebook],
   };
 

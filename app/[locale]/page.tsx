@@ -11,7 +11,7 @@ import { Monopoli } from "@/components/Monopoli";
 import { Experiences } from "@/components/Experiences";
 import { SeasidePool } from "@/components/SeasidePool";
 import { GettingHere } from "@/components/GettingHere";
-import { Reviews } from "@/components/Reviews";
+// import { Reviews } from "@/components/Reviews"; // hidden until real guest reviews exist
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { Lightbox } from "@/components/Lightbox";
@@ -39,7 +39,7 @@ export default function Home({ params }: { params: { locale: string } }) {
         <Experiences />
         <SeasidePool />
         <GettingHere />
-        <Reviews />
+        {/* <Reviews /> — re-enable once there are genuine guest reviews */}
         <Contact />
       </main>
       <Footer />
