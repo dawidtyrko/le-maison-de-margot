@@ -71,10 +71,10 @@ export function Welcome() {
           }}
         >
           {tr(
-            "La Maison de Margot non è un albergo, e non è soltanto un affitto: è una casa, pensata con cura, dove il design contemporaneo incontra la pietra sun-washed del centro storico. Ritratti pop-art, un tavolo in marmo verde, parquet di rovere e una parete verde-petrolio — e, fuori dalla porta, tutta Monopoli a piedi.",
-            "La Maison de Margot is not a hotel and not just a rental: it is a home, designed with care, where contemporary design meets the sun-washed stone of the centro storico. Pop-art portraits, a green-marble table, oak floors and a deep-teal wall — and outside the door, all of Monopoli on foot.",
-            "La Maison de Margot ist kein Hotel und nicht bloß eine Ferienwohnung: Es ist ein Zuhause, mit Sorgfalt gestaltet, wo zeitgenössisches Design auf den sonnengebleichten Stein der Altstadt trifft. Pop-Art-Porträts, ein Tisch aus grünem Marmor, Eichenparkett und eine petrolfarbene Wand — und vor der Tür ganz Monopoli zu Fuß.",
-            "La Maison de Margot to nie hotel ani zwykły wynajem: to dom zaprojektowany z troską, w którym współczesny design spotyka rozświetlony słońcem kamień starówki. Portrety pop-art, stół z zielonego marmuru, dębowa podłoga i ściana w kolorze morskiej zieleni — a za drzwiami całe Monopoli na piechotę.",
+            "Le Maison de Margot non è un albergo, e non è soltanto un affitto: è una casa, pensata con cura, dove il design contemporaneo incontra la pietra sun-washed del centro storico. Ritratti pop-art, un tavolo in marmo verde, parquet di rovere e una parete verde-petrolio — e, fuori dalla porta, tutta Monopoli a piedi.",
+            "Le Maison de Margot is not a hotel and not just a rental: it is a home, designed with care, where contemporary design meets the sun-washed stone of the centro storico. Pop-art portraits, a green-marble table, oak floors and a deep-teal wall — and outside the door, all of Monopoli on foot.",
+            "Le Maison de Margot ist kein Hotel und nicht bloß eine Ferienwohnung: Es ist ein Zuhause, mit Sorgfalt gestaltet, wo zeitgenössisches Design auf den sonnengebleichten Stein der Altstadt trifft. Pop-Art-Porträts, ein Tisch aus grünem Marmor, Eichenparkett und eine petrolfarbene Wand — und vor der Tür ganz Monopoli zu Fuß.",
+            "Le Maison de Margot to nie hotel ani zwykły wynajem: to dom zaprojektowany z troską, w którym współczesny design spotyka rozświetlony słońcem kamień starówki. Portrety pop-art, stół z zielonego marmuru, dębowa podłoga i ściana w kolorze morskiej zieleni — a za drzwiami całe Monopoli na piechotę.",
           )}
         </p>
       </Reveal>

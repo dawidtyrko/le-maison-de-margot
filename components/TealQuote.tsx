@@ -64,10 +64,10 @@ export function TealQuote() {
             }}
           >
             {tr(
-              "— I padroni di casa di La Maison de Margot",
-              "— The hosts of La Maison de Margot",
-              "— Die Gastgeber von La Maison de Margot",
-              "— Gospodarze La Maison de Margot",
+              "— I padroni di casa di Le Maison de Margot",
+              "— The hosts of Le Maison de Margot",
+              "— Die Gastgeber von Le Maison de Margot",
+              "— Gospodarze Le Maison de Margot",
             )}
           </span>
         </Reveal>

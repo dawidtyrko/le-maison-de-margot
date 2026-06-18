@@ -2,7 +2,7 @@
 // TODO: set SITE_URL to the real domain once registered (e.g. the .com or .it).
 export const SITE_URL = "https://lamaisondemargot.com";
 
-export const SITE_NAME = "La Maison de Margot";
+export const SITE_NAME = "Le Maison de Margot";
 
 export const ADDRESS = {
   street: "Via Tenente Vasco 4",
@@ -37,24 +37,24 @@ export const OG_LOCALE: Record<Locale, string> = {
 // Per-locale <title> and meta description.
 export const META: Record<Locale, { title: string; description: string }> = {
   it: {
-    title: "La Maison de Margot — Casa d'autore nel centro storico di Monopoli",
+    title: "Le Maison de Margot — Casa d'autore nel centro storico di Monopoli",
     description:
       "Casa vacanze di design nel cuore antico di Monopoli, Puglia. Un appartamento intimo e curato — il mare, le piazze e il porto tutto a pochi passi. Via Tenente Vasco 4, Monopoli (BA).",
   },
   en: {
-    title: "La Maison de Margot — A design home in Monopoli's old town, Puglia",
+    title: "Le Maison de Margot — A design home in Monopoli's old town, Puglia",
     description:
       "A boutique design apartment in the heart of Monopoli, Puglia — the sea, the squares and the harbour all a short walk away. Via Tenente Vasco 4, Monopoli (BA).",
   },
   de: {
     title:
-      "La Maison de Margot — Designwohnung in der Altstadt von Monopoli, Apulien",
+      "Le Maison de Margot — Designwohnung in der Altstadt von Monopoli, Apulien",
     description:
       "Eine intime Designwohnung im historischen Zentrum von Monopoli, Apulien — Meer, Plätze und Hafen nur wenige Schritte entfernt. Via Tenente Vasco 4, Monopoli (BA).",
   },
   pl: {
     title:
-      "La Maison de Margot — Designerski apartament na starówce Monopoli, Apulia",
+      "Le Maison de Margot — Designerski apartament na starówce Monopoli, Apulia",
     description:
       "Kameralny, designerski apartament w sercu Monopoli w Apulii — morze, place i port o kilka kroków. Via Tenente Vasco 4, Monopoli (BA).",
   },
@@ -71,5 +71,5 @@ export const KEYWORDS = [
   "Monopoli old town apartment",
   "vacanze Puglia mare",
   "alloggio Monopoli a piedi dal mare",
-  "La Maison de Margot",
+  "Le Maison de Margot",
 ];

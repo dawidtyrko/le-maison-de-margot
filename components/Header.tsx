@@ -85,7 +85,7 @@ export function Header() {
           transition: "color .45s ease",
         }}
       >
-        La Maison <span style={{ fontStyle: "italic" }}>de Margot</span>
+        Le Maison <span style={{ fontStyle: "italic" }}>de Margot</span>
       </a>
 
       <div

@@ -35,6 +35,12 @@ const tiles: Tile[] = [
     span: { gridRow: "span 2" },
   },
   { src: "/assets/camera-2.jpg", alt: "Camera con tende", delay: 80 },
+  {
+    src: "/assets/dettaglio-lampada.jpg",
+    alt: "Lampada in ceramica traforata che proietta luce calda",
+    span: { gridRow: "span 2" },
+    delay: 140,
+  },
 ];
 
 // [it, en, de, pl]

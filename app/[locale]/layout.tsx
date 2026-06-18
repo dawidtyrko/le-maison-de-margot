@@ -49,7 +49,7 @@ export function generateMetadata({
 
   return {
     metadataBase: new URL(SITE_URL),
-    title: { default: m.title, template: "%s · La Maison de Margot" },
+    title: { default: m.title, template: "%s · Le Maison de Margot" },
     description: m.description,
     keywords: KEYWORDS,
     applicationName: SITE_NAME,

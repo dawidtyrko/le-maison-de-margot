@@ -97,7 +97,7 @@ export function Hero() {
             }}
           >
             <span style={{ display: "block", fontSize: "clamp(46px,9vw,118px)" }}>
-              La Maison
+              Le Maison
             </span>
             <span
               style={{

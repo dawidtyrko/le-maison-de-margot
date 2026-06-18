@@ -68,6 +68,13 @@ export const lightboxImages: GalleryImage[] = [
     capDe: "Schlafzimmer — Morgenlicht",
     capPl: "Sypialnia — poranne światło",
   },
+  {
+    src: "/assets/dettaglio-lampada.jpg",
+    capIt: "Dettagli che scaldano — la lampada in ceramica la sera",
+    capEn: "Details that warm the room — the ceramic lamp at night",
+    capDe: "Details, die wärmen — die Keramiklampe am Abend",
+    capPl: "Detale, które ocieplają — ceramiczna lampa wieczorem",
+  },
   // --- Il bar sul mare ---
   {
     src: "/assets/bar-pool-3.jpg",

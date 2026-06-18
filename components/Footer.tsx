@@ -67,7 +67,7 @@ export function Footer() {
               lineHeight: 1.05,
             }}
           >
-            La Maison
+            Le Maison
             <br />
             <span style={{ fontStyle: "italic" }}>de Margot</span>
           </span>
@@ -121,7 +121,7 @@ export function Footer() {
           color: "rgba(245,239,227,.5)",
         }}
       >
-        <span>© 2026 La Maison de Margot · Monopoli, Puglia</span>
+        <span>© 2026 Le Maison de Margot · Monopoli, Puglia</span>
         <span>
           {tr(
             "Fatto con cura nel centro storico",
