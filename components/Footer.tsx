@@ -36,7 +36,7 @@ export function Footer() {
           maxWidth: 1120,
           margin: "0 auto",
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit,minmax(200px,1fr))",
+          gridTemplateColumns: "repeat(auto-fit,minmax(min(200px,100%),1fr))",
           gap: 36,
           alignItems: "start",
         }}

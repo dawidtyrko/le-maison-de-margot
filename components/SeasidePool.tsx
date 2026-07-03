@@ -179,7 +179,7 @@ export function SeasidePool() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))",
+            gridTemplateColumns: "repeat(auto-fit,minmax(min(220px,100%),1fr))",
             gap: 16,
           }}
         >

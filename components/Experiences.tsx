@@ -339,7 +339,7 @@ export function Experiences() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit,minmax(248px,1fr))",
+            gridTemplateColumns: "repeat(auto-fit,minmax(min(248px,100%),1fr))",
             gap: 18,
           }}
         >

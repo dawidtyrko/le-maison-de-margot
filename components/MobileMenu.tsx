@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { useApp } from "./Providers";
+import { useApp, LANGS } from "./Providers";
 import { SANS, SERIF } from "@/lib/ui";
 
 type NavLink = {
@@ -69,7 +69,7 @@ const links: NavLink[] = [
 ];
 
 export function MobileMenu() {
-  const { menuOpen, setMenuOpen, tr } = useApp();
+  const { menuOpen, setMenuOpen, tr, lang, setLang } = useApp();
 
   // Esc closes.
   useEffect(() => {
@@ -180,6 +180,60 @@ export function MobileMenu() {
               {tr(l.it, l.en, l.de, l.pl)}
             </a>
           ))}
+        </div>
+
+        {/* language switch — the header toggle is hidden on phones, so it
+            lives here to keep all four languages reachable on mobile */}
+        <div
+          style={{
+            borderTop: "1px solid rgba(30,95,95,.16)",
+            padding: "11px 18px",
+            display: "flex",
+            alignItems: "center",
+            gap: 10,
+          }}
+        >
+          <span
+            style={{
+              fontFamily: SANS,
+              fontSize: 10,
+              letterSpacing: ".22em",
+              textTransform: "uppercase",
+              color: "#8a9ba0",
+              fontWeight: 700,
+            }}
+          >
+            {tr("Lingua", "Language", "Sprache", "Język")}
+          </span>
+          <div style={{ display: "flex", gap: 4, marginLeft: "auto" }}>
+            {LANGS.map((l, i) => (
+              <span key={l.code} style={{ display: "inline-flex", alignItems: "center", gap: 4 }}>
+                {i > 0 && <span style={{ color: "#c3cdc9" }}>/</span>}
+                <button
+                  onClick={() => {
+                    setLang(l.code);
+                    setMenuOpen(false);
+                  }}
+                  aria-pressed={lang === l.code}
+                  aria-label={l.label}
+                  style={{
+                    background: "none",
+                    border: "none",
+                    cursor: "pointer",
+                    fontFamily: SANS,
+                    fontSize: 12,
+                    fontWeight: 700,
+                    letterSpacing: ".1em",
+                    padding: "2px 3px",
+                    color: lang === l.code ? "#1E6E73" : "#5C7173",
+                    opacity: lang === l.code ? 1 : 0.6,
+                  }}
+                >
+                  {l.label}
+                </button>
+              </span>
+            ))}
+          </div>
         </div>
 
         {/* bottom: address + socials */}

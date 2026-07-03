@@ -69,7 +69,7 @@ export function Header() {
             style={{ height: 1.5, background: "currentColor", display: "block", width: 13 }}
           />
         </span>
-        <span>{tr("Menu", "Menu", "Menü", "Menu")}</span>
+        <span className="hdr-menu-label">{tr("Menu", "Menu", "Menü", "Menu")}</span>
       </button>
 
       <a
@@ -103,6 +103,7 @@ export function Header() {
         }}
       >
         <div
+          className="hdr-langs"
           style={{
             display: "flex",
             alignItems: "center",
@@ -138,7 +139,7 @@ export function Header() {
 
         <a
           href="#contatti"
-          className="btn-prenota"
+          className="btn-prenota hdr-book"
           style={{
             display: "inline-block",
             background: "rgba(30,110,115,.14)",

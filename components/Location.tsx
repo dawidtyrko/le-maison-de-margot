@@ -80,7 +80,7 @@ export function Location() {
           maxWidth: 1160,
           margin: "0 auto",
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit,minmax(300px,1fr))",
+          gridTemplateColumns: "repeat(auto-fit,minmax(min(300px,100%),1fr))",
           gap: "clamp(40px,6vw,80px)",
           alignItems: "center",
         }}

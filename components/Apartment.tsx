@@ -139,7 +139,7 @@ export function Apartment() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit,minmax(250px,1fr))",
+            gridTemplateColumns: "repeat(auto-fit,minmax(min(250px,100%),1fr))",
             gridAutoRows: "200px",
             gap: 14,
           }}
@@ -165,7 +165,7 @@ export function Apartment() {
           style={{
             marginTop: "clamp(48px,7vw,80px)",
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))",
+            gridTemplateColumns: "repeat(auto-fit,minmax(min(280px,100%),1fr))",
             gap: "clamp(30px,4vw,60px)",
             alignItems: "start",
           }}
@@ -214,7 +214,7 @@ export function Apartment() {
               margin: 0,
               padding: 0,
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit,minmax(150px,1fr))",
+              gridTemplateColumns: "repeat(auto-fit,minmax(min(150px,100%),1fr))",
               gap: "14px 26px",
             }}
           >

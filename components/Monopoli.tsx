@@ -206,7 +206,7 @@ export function Monopoli() {
         <Reveal
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit,minmax(240px,1fr))",
+            gridTemplateColumns: "repeat(auto-fit,minmax(min(240px,100%),1fr))",
             gap: 16,
           }}
         >
@@ -255,7 +255,7 @@ export function Monopoli() {
           style={{
             marginTop: "clamp(34px,4vw,52px)",
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))",
+            gridTemplateColumns: "repeat(auto-fit,minmax(min(220px,100%),1fr))",
             gap: "clamp(20px,3vw,40px)",
           }}
         >

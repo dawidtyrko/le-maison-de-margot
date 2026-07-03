@@ -131,3 +131,13 @@ input,textarea,select,button{font-family:inherit;}
   .reveal{opacity:1 !important;transform:none !important;animation:none !important;}
   .cue-line{animation:none !important;}
 }
+
+/* ---- Compact top bar on phones ----
+   The language switcher and the Prenota pill would overflow a narrow header,
+   so we hide them here and surface both inside the Menu popover instead.
+   The hamburger icon + wordmark remain and fit comfortably. */
+@media (max-width: 640px){
+  .hdr-langs,
+  .hdr-book,
+  .hdr-menu-label{display:none !important;}
+}
