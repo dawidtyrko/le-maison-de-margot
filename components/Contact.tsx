@@ -4,11 +4,10 @@ import { useApp } from "./Providers";
 import { Reveal } from "./Reveal";
 import { SANS, SERIF } from "@/lib/ui";
 
-// Placeholders — wire to real Booking/Airbnb URLs and real contact details.
-const BOOKING_URL = "#";
-const AIRBNB_URL = "#";
-const WHATSAPP_URL = "https://wa.me/390000000000";
-const EMAIL = "ciao@lamaisondemargot.it";
+const BOOKING_URL = "https://www.booking.com/Share-04ZIHgf";
+const WHATSAPP_URL = "https://wa.me/393703366836";
+const PHONE_DISPLAY = "+39 370 336 6836";
+const EMAIL = "lamaisondemargot4@gmail.com";
 
 const eyebrowStyle: React.CSSProperties = {
   display: "block",
@@ -114,6 +113,8 @@ export function Contact() {
             <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
               <a
                 href={BOOKING_URL}
+                target="_blank"
+                rel="noopener"
                 className="btn-teal"
                 style={{
                   flex: 1,
@@ -142,9 +143,8 @@ export function Contact() {
                   "Rezerwuj na Booking",
                 )}
               </a>
-              <a
-                href={AIRBNB_URL}
-                className="btn-outline"
+              <span
+                aria-disabled="true"
                 style={{
                   flex: 1,
                   minWidth: 150,
@@ -153,8 +153,7 @@ export function Contact() {
                   justifyContent: "center",
                   gap: 9,
                   background: "transparent",
-                  color: "#1E6E73",
-                  textDecoration: "none",
+                  color: "rgba(30,110,115,.5)",
                   fontFamily: SANS,
                   fontSize: 12,
                   letterSpacing: ".16em",
@@ -162,34 +161,18 @@ export function Contact() {
                   fontWeight: 600,
                   padding: "15px 18px",
                   borderRadius: 7,
-                  border: "1px solid rgba(30,110,115,.5)",
+                  border: "1px dashed rgba(30,110,115,.35)",
+                  cursor: "default",
                 }}
               >
                 {tr(
-                  "Prenota su Airbnb",
-                  "Book on Airbnb",
-                  "Auf Airbnb buchen",
-                  "Rezerwuj na Airbnb",
+                  "Airbnb — in arrivo",
+                  "Airbnb — coming soon",
+                  "Airbnb — in Kürze",
+                  "Airbnb — wkrótce",
                 )}
-              </a>
+              </span>
             </div>
-            <span
-              style={{
-                display: "block",
-                marginTop: 11,
-                fontFamily: SANS,
-                fontSize: 11,
-                letterSpacing: ".06em",
-                color: "#8a7c5e",
-              }}
-            >
-              {tr(
-                "Link diretti di prenotazione — in arrivo",
-                "Direct booking links — coming soon",
-                "Direkte Buchungslinks — in Kürze",
-                "Bezpośrednie linki rezerwacji — wkrótce",
-              )}
-            </span>
           </div>
 
           {/* Contacts */}
@@ -208,7 +191,8 @@ export function Contact() {
             >
               <IconCircle>Wa</IconCircle>
               <span>
-                <span style={eyebrowStyle}>WhatsApp</span>+39 000 000 0000
+                <span style={eyebrowStyle}>WhatsApp</span>
+                {PHONE_DISPLAY}
               </span>
             </a>
             <a
@@ -244,67 +228,6 @@ export function Contact() {
                 <span style={eyebrowStyle}>{tr("Indirizzo", "Address", "Adresse", "Adres")}</span>
                 Via Tenente Vasco 4 · 70043 Monopoli (BA)
               </span>
-            </div>
-
-            <div style={{ display: "flex", gap: 12, marginTop: 10 }}>
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener"
-                aria-label="Instagram"
-                className="social-pill"
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: 10,
-                  height: 44,
-                  padding: "0 18px 0 14px",
-                  border: "1px solid rgba(20,50,58,.22)",
-                  borderRadius: 30,
-                  color: "#14323A",
-                  textDecoration: "none",
-                  fontFamily: SANS,
-                  fontSize: 12,
-                  letterSpacing: ".12em",
-                  textTransform: "uppercase",
-                  fontWeight: 600,
-                }}
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7">
-                  <rect x="3" y="3" width="18" height="18" rx="5.4" />
-                  <circle cx="12" cy="12" r="4" />
-                  <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none" />
-                </svg>
-                <span>Instagram</span>
-              </a>
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener"
-                aria-label="Facebook"
-                className="social-pill"
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: 10,
-                  height: 44,
-                  padding: "0 18px 0 14px",
-                  border: "1px solid rgba(20,50,58,.22)",
-                  borderRadius: 30,
-                  color: "#14323A",
-                  textDecoration: "none",
-                  fontFamily: SANS,
-                  fontSize: 12,
-                  letterSpacing: ".12em",
-                  textTransform: "uppercase",
-                  fontWeight: 600,
-                }}
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M14 8.5V7c0-.7.3-1 1-1h1.5V3H14c-2.2 0-3.5 1.3-3.5 3.6v1.9H8.5v3h2V21h3.5v-9.5h2.4l.4-3H14z" />
-                </svg>
-                <span>Facebook</span>
-              </a>
             </div>
           </div>
         </Reveal>

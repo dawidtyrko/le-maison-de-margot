@@ -199,21 +199,14 @@ export function MobileMenu() {
           <span>Via Tenente Vasco 4 · Monopoli</span>
           <span style={{ display: "inline-flex", gap: 16 }}>
             <a
-              href="https://wa.me/390000000000"
+              href="https://wa.me/393703366836"
               className="txt-link"
               style={{ color: "#1E6E73", textDecoration: "none", fontWeight: 600 }}
             >
               WhatsApp
             </a>
             <a
-              href="https://instagram.com"
-              className="txt-link"
-              style={{ color: "#1E6E73", textDecoration: "none", fontWeight: 600 }}
-            >
-              Instagram
-            </a>
-            <a
-              href="mailto:ciao@lamaisondemargot.it"
+              href="mailto:lamaisondemargot4@gmail.com"
               className="txt-link"
               style={{ color: "#1E6E73", textDecoration: "none", fontWeight: 600 }}
             >

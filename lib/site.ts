@@ -14,13 +14,15 @@ export const ADDRESS = {
 
 export const GEO = { lat: 40.952659825819396, lng: 17.30087612383493 };
 
-// TODO: replace placeholders with the real contact details.
 export const CONTACT = {
-  email: "ciao@lamaisondemargot.it",
-  phone: "+39 000 000 0000",
-  whatsapp: "https://wa.me/390000000000",
-  instagram: "https://instagram.com",
-  facebook: "https://facebook.com",
+  email: "lamaisondemargot4@gmail.com",
+  phone: "+39 370 336 6836",
+  whatsapp: "https://wa.me/393703366836",
+  booking: "https://www.booking.com/Share-04ZIHgf",
+  // No Airbnb listing or social profiles yet.
+  airbnb: "",
+  instagram: "",
+  facebook: "",
 };
 
 export const LOCALES = ["it", "en", "de", "pl"] as const;

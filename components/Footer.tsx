@@ -99,10 +99,10 @@ export function Footer() {
           <div style={{ display: "flex", flexDirection: "column", gap: 9, fontSize: 14 }}>
             <span>Via Tenente Vasco 4</span>
             <span>70043 Monopoli (BA), Italia</span>
-            <a href="mailto:ciao@lamaisondemargot.it" className="txt-link" style={linkStyle}>
-              ciao@lamaisondemargot.it
+            <a href="mailto:lamaisondemargot4@gmail.com" className="txt-link" style={linkStyle}>
+              lamaisondemargot4@gmail.com
             </a>
-            <span>+39 000 000 0000</span>
+            <span>+39 370 336 6836</span>
           </div>
         </div>
       </div>
