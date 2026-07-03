@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useApp, LANGS } from "./Providers";
+import { PumoMark } from "./PumoMark";
 import { SANS, SERIF } from "@/lib/ui";
 
 export function Header() {
@@ -73,6 +74,7 @@ export function Header() {
 
       <a
         href="#top"
+        aria-label="Le Maison de Margot"
         style={{
           textDecoration: "none",
           color: ink,
@@ -80,12 +82,17 @@ export function Header() {
           fontSize: "clamp(17px,2vw,21px)",
           letterSpacing: ".04em",
           lineHeight: 1,
-          textAlign: "center",
+          display: "inline-flex",
+          alignItems: "center",
+          gap: 11,
           whiteSpace: "nowrap",
           transition: "color .45s ease",
         }}
       >
-        Le Maison <span style={{ fontStyle: "italic" }}>de Margot</span>
+        <PumoMark height={30} />
+        <span>
+          Le Maison <span style={{ fontStyle: "italic" }}>de Margot</span>
+        </span>
       </a>
 
       <div

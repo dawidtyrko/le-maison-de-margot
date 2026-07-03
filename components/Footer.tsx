@@ -1,6 +1,7 @@
 "use client";
 
 import { useApp } from "./Providers";
+import { PumoMark } from "./PumoMark";
 import { SANS, SERIF } from "@/lib/ui";
 
 const labelStyle: React.CSSProperties = {
@@ -41,24 +42,7 @@ export function Footer() {
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-          <span
-            style={{
-              width: 52,
-              height: 52,
-              border: "1px solid rgba(245,239,227,.4)",
-              borderRadius: "50%",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontFamily: SERIF,
-              fontStyle: "italic",
-              fontSize: 26,
-              color: "#F5EFE3",
-              flex: "none",
-            }}
-          >
-            m
-          </span>
+          <PumoMark height={54} style={{ color: "#F5EFE3", flex: "none" }} />
           <span
             style={{
               fontFamily: SERIF,

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useApp } from "./Providers";
 import { useParallax } from "./useParallax";
+import { PumoMark } from "./PumoMark";
 import { SANS, SERIF } from "@/lib/ui";
 
 export function Hero() {
@@ -62,29 +63,7 @@ export function Hero() {
             gap: 26,
           }}
         >
-          <div
-            style={{
-              width: 72,
-              height: 72,
-              border: "1px solid rgba(245,239,227,.55)",
-              borderRadius: "50%",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <span
-              style={{
-                fontFamily: SERIF,
-                fontStyle: "italic",
-                fontSize: 36,
-                color: "#F5EFE3",
-                lineHeight: 1,
-              }}
-            >
-              m
-            </span>
-          </div>
+          <PumoMark height={78} style={{ color: "#F5EFE3" }} />
           <h1
             style={{
               margin: 0,

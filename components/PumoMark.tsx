@@ -1,0 +1,63 @@
+// Brand mark — the pumo pugliese (Grottaglie ceramic bud): rebirth & good
+// fortune, over an Adriatic wave. Inline SVG so it inherits `currentColor`
+// (the header flips ivory→ink on scroll). Size by height; width follows.
+
+type Props = {
+  height?: number;
+  title?: string;
+  style?: React.CSSProperties;
+};
+
+export function PumoMark({ height = 32, title, style }: Props) {
+  return (
+    <svg
+      viewBox="0 0 120 168"
+      role={title ? "img" : undefined}
+      aria-label={title}
+      aria-hidden={title ? undefined : true}
+      focusable="false"
+      style={{ height, width: "auto", display: "block", ...style }}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2.1}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      {title ? <title>{title}</title> : null}
+      <path d="M60 20 C63 28 86 42 86 61 C86 79 75 93 60 94 C45 93 34 79 34 61 C34 42 57 28 60 20 Z" />
+      <g>
+        <path d="M50 92 C36 91 25 82 21 68 C19 59 21 51 27 47 C30 44 34 45 36 49" />
+        <path d="M36 49 C37 57 39 65 43 74 C46 81 50 87 50 92" />
+        <g strokeWidth={1.5}>
+          <path d="M25 58 C29 60 33 62 37 64" />
+          <path d="M25 66 C29 68 34 69 39 71" />
+          <path d="M27 74 C31 76 36 77 42 78" />
+          <path d="M31 82 C35 84 40 85 46 85" />
+        </g>
+      </g>
+      <g transform="matrix(-1,0,0,1,120,0)">
+        <path d="M50 92 C36 91 25 82 21 68 C19 59 21 51 27 47 C30 44 34 45 36 49" />
+        <path d="M36 49 C37 57 39 65 43 74 C46 81 50 87 50 92" />
+        <g strokeWidth={1.5}>
+          <path d="M25 58 C29 60 33 62 37 64" />
+          <path d="M25 66 C29 68 34 69 39 71" />
+          <path d="M27 74 C31 76 36 77 42 78" />
+          <path d="M31 82 C35 84 40 85 46 85" />
+        </g>
+      </g>
+      <path d="M55 96 C56 100 57 103 58 107" />
+      <path d="M65 96 C64 100 63 103 62 107" />
+      <ellipse cx="60" cy="110" rx="9" ry="3.2" />
+      <path d="M58 113 L56 119" />
+      <path d="M62 113 L64 119" />
+      <path d="M56 119 C52 122 49 125 47 130" />
+      <path d="M64 119 C68 122 71 125 73 130" />
+      <ellipse cx="60" cy="130" rx="14" ry="3" />
+      <path d="M48 133 C54 135 66 135 72 133" />
+      <g strokeWidth={1.7}>
+        <path d="M31 147 C39 141 47 141 55 147 C62 152 69 152 76 147 C80 144 84 144 88 147" />
+        <path d="M36 155 C43 150 50 150 57 155 C62 159 68 159 73 155 C76 153 79 153 82 155" />
+      </g>
+    </svg>
+  );
+}

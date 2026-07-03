@@ -54,6 +54,14 @@ export function generateMetadata({
     keywords: KEYWORDS,
     applicationName: SITE_NAME,
     authors: [{ name: SITE_NAME }],
+    manifest: "/manifest.webmanifest",
+    icons: {
+      icon: [
+        { url: "/favicon.svg", type: "image/svg+xml" },
+        { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
+      ],
+      apple: [{ url: "/apple-touch-icon-180.png", sizes: "180x180" }],
+    },
     alternates: { canonical: `/${locale}`, languages },
     robots: {
       index: true,
