@@ -1,6 +1,5 @@
 // Central site configuration — used by metadata, JSON-LD, sitemap and robots.
-// TODO: set SITE_URL to the real domain once registered (e.g. the .com or .it).
-export const SITE_URL = "https://lamaisondemargot.com";
+export const SITE_URL = "https://lemaisondemargot.com";
 
 export const SITE_NAME = "Le Maison de Margot";
 
