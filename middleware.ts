@@ -3,8 +3,19 @@ import { NextRequest, NextResponse } from "next/server";
 const LOCALES = ["it", "en", "de", "pl"];
 const DEFAULT_LOCALE = "it";
 
-// Redirect locale-less paths (e.g. "/") to a locale, picking the best match
-// from Accept-Language and falling back to Italian.
+// Permanently redirect locale-less paths (e.g. "/") to the default locale.
+//
+// We send a 308 (permanent) instead of the default 307 (temporary): a permanent
+// redirect tells Google to consolidate all ranking signals onto the localised
+// URL (/it) and treat it as the canonical home, rather than keeping the bare "/"
+// as a competing duplicate — the cause of the "Duplicate, Google chose different
+// canonical than user" state in Search Console.
+//
+// Note: this drops Accept-Language auto-detection for the bare root. Everyone
+// lands on Italian first (the primary market) and picks their language with the
+// in-page IT/EN/DE/PL switcher. A permanent redirect must always point to the
+// same target, so it can't vary by header — and Google advises against
+// header-based auto-redirects for exactly that reason.
 export function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
@@ -13,15 +24,9 @@ export function middleware(req: NextRequest) {
   );
   if (hasLocale) return;
 
-  const accept = (req.headers.get("accept-language") || "").toLowerCase();
-  const detected =
-    LOCALES.find((l) => accept.startsWith(l) || accept.includes(`,${l}`)) ||
-    LOCALES.find((l) => accept.includes(l)) ||
-    DEFAULT_LOCALE;
-
   const url = req.nextUrl.clone();
-  url.pathname = `/${detected}${pathname === "/" ? "" : pathname}`;
-  return NextResponse.redirect(url);
+  url.pathname = `/${DEFAULT_LOCALE}${pathname === "/" ? "" : pathname}`;
+  return NextResponse.redirect(url, 308);
 }
 
 export const config = {
