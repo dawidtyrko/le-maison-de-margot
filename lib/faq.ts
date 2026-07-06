@@ -7,9 +7,8 @@
 // type into search ("dove parcheggiare a Monopoli", "come arrivare da Bari"),
 // which is where the SEO value comes from.
 //
-// NOTE(dawid): the check-out time below is a placeholder — Eva confirmed the
-// check-in window (14:00–21:00) but did not state a check-out time. Confirm it
-// with her before publishing, then update CHECKOUT_TIME.
+// Check-out time confirmed by Eva (2026-07-06). Late check-out is by request,
+// subject to availability, and carries a supplement (see the check-in answer).
 export const CHECKOUT_TIME = "10:00";
 
 import type { Lang } from "@/components/Providers";
@@ -92,10 +91,10 @@ export const FAQ: FaqItem[] = [
     },
     a: {
       text: {
-        it: `Il check-in si effettua dalle 14:00 alle 21:00 e le chiavi ti vengono consegnate di persona: saremo felici di accoglierti e di mostrarti l'appartamento. Per un late check-in è previsto un supplemento di € 30 (fino a mezzanotte) o € 50 (dopo mezzanotte); ti chiediamo gentilmente di avvisarci in anticipo per organizzare al meglio l'accoglienza. Il check-out è entro le ore ${CHECKOUT_TIME}.`,
-        en: `Check-in is from 14:00 to 21:00 and the keys are handed over in person — we'll be glad to welcome you and show you around. For a late check-in there is a supplement of € 30 (until midnight) or € 50 (after midnight); please let us know in advance so we can arrange your arrival. Check-out is by ${CHECKOUT_TIME}.`,
-        de: `Der Check-in ist von 14:00 bis 21:00 Uhr, die Schlüssel werden persönlich übergeben — wir begrüßen Sie gern und zeigen Ihnen die Wohnung. Für einen späten Check-in fällt ein Zuschlag von € 30 (bis Mitternacht) bzw. € 50 (nach Mitternacht) an; bitte informieren Sie uns vorab, damit wir Ihre Ankunft optimal organisieren können. Der Check-out ist bis ${CHECKOUT_TIME} Uhr.`,
-        pl: `Zameldowanie odbywa się w godzinach 14:00–21:00, a klucze przekazujemy osobiście — z przyjemnością Cię powitamy i oprowadzimy po apartamencie. Za późne zameldowanie obowiązuje dopłata € 30 (do północy) lub € 50 (po północy); prosimy o wcześniejszą informację, abyśmy mogli jak najlepiej zorganizować Twoje przybycie. Wymeldowanie do godziny ${CHECKOUT_TIME}.`,
+        it: `Il check-in si effettua dalle 14:00 alle 21:00 e le chiavi ti vengono consegnate di persona: saremo felici di accoglierti e di mostrarti l'appartamento. Per un late check-in è previsto un supplemento di € 30 (fino a mezzanotte) o € 50 (dopo mezzanotte); ti chiediamo gentilmente di avvisarci in anticipo per organizzare al meglio l'accoglienza. Il check-out è entro le ore ${CHECKOUT_TIME}; eventuali richieste di late check-out saranno valutate in base alla disponibilità e comportano un supplemento.`,
+        en: `Check-in is from 14:00 to 21:00 and the keys are handed over in person — we'll be glad to welcome you and show you around. For a late check-in there is a supplement of € 30 (until midnight) or € 50 (after midnight); please let us know in advance so we can arrange your arrival. Check-out is by ${CHECKOUT_TIME}; any late check-out request is considered subject to availability and carries a supplement.`,
+        de: `Der Check-in ist von 14:00 bis 21:00 Uhr, die Schlüssel werden persönlich übergeben — wir begrüßen Sie gern und zeigen Ihnen die Wohnung. Für einen späten Check-in fällt ein Zuschlag von € 30 (bis Mitternacht) bzw. € 50 (nach Mitternacht) an; bitte informieren Sie uns vorab, damit wir Ihre Ankunft optimal organisieren können. Der Check-out ist bis ${CHECKOUT_TIME} Uhr; ein späterer Check-out ist auf Anfrage je nach Verfügbarkeit möglich und mit einem Aufschlag verbunden.`,
+        pl: `Zameldowanie odbywa się w godzinach 14:00–21:00, a klucze przekazujemy osobiście — z przyjemnością Cię powitamy i oprowadzimy po apartamencie. Za późne zameldowanie obowiązuje dopłata € 30 (do północy) lub € 50 (po północy); prosimy o wcześniejszą informację, abyśmy mogli jak najlepiej zorganizować Twoje przybycie. Wymeldowanie do godziny ${CHECKOUT_TIME}; ewentualne prośby o późne wymeldowanie rozpatrujemy w zależności od dostępności i wiążą się z dopłatą.`,
       },
     },
   },
