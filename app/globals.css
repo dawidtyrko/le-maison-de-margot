@@ -81,6 +81,18 @@ input,textarea,select,button{font-family:inherit;}
 .txt-link{transition:color .25s;}
 .txt-link:hover{color:#1E6E73 !important;}
 
+/* ---- FAQ accordion (native <details>/<summary>) ---- */
+.faq-summary::-webkit-details-marker{display:none;}
+.faq-summary::marker{content:"";}
+.faq-summary:hover{color:#1E6E73 !important;}
+.faq-plus{
+  flex:none;font-family:var(--font-mulish),sans-serif;font-weight:300;
+  font-size:26px;line-height:1;color:#C0673D;
+  transition:transform .28s cubic-bezier(.2,.85,.25,1);
+}
+.faq-item[open] .faq-plus{transform:rotate(45deg);}
+.faq-item[open] .faq-summary{color:#1E6E73;}
+
 /* ---- Location map (Leaflet) ---- */
 .leaflet-container{
   background:#D4E4E0;

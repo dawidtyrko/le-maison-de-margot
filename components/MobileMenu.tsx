@@ -59,6 +59,13 @@ const links: NavLink[] = [
     pl: "Jak dojechać",
   },
   {
+    href: "#faq",
+    it: "Domande frequenti",
+    en: "FAQ",
+    de: "Häufige Fragen",
+    pl: "Częste pytania",
+  },
+  {
     href: "#contatti",
     it: "Prenota & contatti",
     en: "Book & contact",

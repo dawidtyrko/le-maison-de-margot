@@ -12,6 +12,7 @@ import { Experiences } from "@/components/Experiences";
 import { SeasidePool } from "@/components/SeasidePool";
 import { GettingHere } from "@/components/GettingHere";
 import { Reviews } from "@/components/Reviews";
+import { Faq } from "@/components/Faq";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { Lightbox } from "@/components/Lightbox";
@@ -40,6 +41,7 @@ export default function Home({ params }: { params: { locale: string } }) {
         <SeasidePool />
         <GettingHere />
         <Reviews />
+        <Faq />
         <Contact />
       </main>
       <Footer />

@@ -4,15 +4,18 @@ import { SITE_URL, SITE_NAME, ADDRESS, GEO, CONTACT } from "@/lib/site";
 // with a real address, location, amenities and guest ratings. Rendered as a
 // server-side <script type="application/ld+json"> in the document body.
 const amenities = [
-  "Wi-Fi in fibra",
+  "Wi-Fi gratuito",
   "Aria condizionata",
   "Cucina attrezzata",
+  "Lavastoviglie",
   "Macchina caffè Nespresso",
   "Smart TV",
   "Lavatrice",
+  "Ferro e asse da stiro",
+  "Attrezzatura da mare",
   "Biancheria e asciugamani",
   "Riscaldamento",
-  "Self check-in",
+  "Check-in con accoglienza",
 ];
 
 export function JsonLd() {

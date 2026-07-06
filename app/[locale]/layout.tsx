@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { Cormorant, Mulish } from "next/font/google";
 import "../globals.css";
 import { JsonLd } from "@/components/JsonLd";
+import { FaqJsonLd } from "@/components/FaqJsonLd";
 import {
   SITE_URL,
   SITE_NAME,
@@ -10,6 +11,7 @@ import {
   LOCALES,
   META,
   OG_LOCALE,
+  DEFAULT_LOCALE,
   type Locale,
 } from "@/lib/site";
 
@@ -104,6 +106,7 @@ export default function LocaleLayout({
   params: { locale: string };
 }) {
   if (!(LOCALES as readonly string[]).includes(params.locale)) notFound();
+  const lang = (params.locale as Locale) ?? DEFAULT_LOCALE;
 
   return (
     <html
@@ -112,6 +115,7 @@ export default function LocaleLayout({
     >
       <body>
         <JsonLd />
+        <FaqJsonLd lang={lang} />
         {children}
       </body>
     </html>
