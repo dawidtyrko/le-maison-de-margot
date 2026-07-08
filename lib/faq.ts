@@ -108,10 +108,10 @@ export const FAQ: FaqItem[] = [
     },
     a: {
       text: {
-        it: "L'appartamento ospita fino a 4 persone, bambini di ogni età inclusi. Dispone di un letto matrimoniale e di un divano letto matrimoniale; su richiesta è disponibile una culla.",
-        en: "The apartment sleeps up to 4 people, children of any age included. It has a double bed and a double sofa bed; a cot is available on request.",
-        de: "Die Wohnung bietet Platz für bis zu 4 Personen, Kinder jeden Alters inbegriffen. Sie verfügt über ein Doppelbett und ein Schlafsofa (Doppelbett); ein Kinderbett ist auf Anfrage verfügbar.",
-        pl: "Apartament pomieści do 4 osób, w tym dzieci w każdym wieku. Dysponuje łóżkiem podwójnym i rozkładaną sofą dwuosobową; łóżeczko dziecięce dostępne na życzenie.",
+        it: "L'appartamento ospita fino a 4 persone, bambini di ogni età inclusi. Dispone di un letto matrimoniale e di un divano letto matrimoniale.",
+        en: "The apartment sleeps up to 4 people, children of any age included. It has a double bed and a double sofa bed.",
+        de: "Die Wohnung bietet Platz für bis zu 4 Personen, Kinder jeden Alters inbegriffen. Sie verfügt über ein Doppelbett und ein Schlafsofa (Doppelbett).",
+        pl: "Apartament pomieści do 4 osób, w tym dzieci w każdym wieku. Dysponuje łóżkiem podwójnym i rozkładaną sofą dwuosobową.",
       },
     },
   },
