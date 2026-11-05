@@ -18,8 +18,8 @@ export const CONTACT = {
   phone: "+39 370 336 6836",
   whatsapp: "https://wa.me/393703366836",
   booking: "https://www.booking.com/Share-04ZIHgf",
-  // No Airbnb listing or social profiles yet.
-  airbnb: "",
+  airbnb: "https://www.airbnb.it/rooms/1746974174723235741",
+  // No social profiles yet.
   instagram: "",
   facebook: "",
 };

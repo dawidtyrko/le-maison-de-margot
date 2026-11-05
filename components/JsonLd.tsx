@@ -60,7 +60,12 @@ export function JsonLd() {
     })),
     // aggregateRating / review intentionally omitted until there are genuine
     // guest reviews — fabricated rating markup violates Google's guidelines.
-    sameAs: [CONTACT.instagram, CONTACT.facebook].filter(Boolean),
+    sameAs: [
+      CONTACT.booking,
+      CONTACT.airbnb,
+      CONTACT.instagram,
+      CONTACT.facebook,
+    ].filter(Boolean),
   };
 
   return (

@@ -5,6 +5,7 @@ import { Reveal } from "./Reveal";
 import { SANS, SERIF } from "@/lib/ui";
 
 const BOOKING_URL = "https://www.booking.com/Share-04ZIHgf";
+const AIRBNB_URL = "https://www.airbnb.it/rooms/1746974174723235741";
 const WHATSAPP_URL = "https://wa.me/393703366836";
 const PHONE_DISPLAY = "+39 370 336 6836";
 const EMAIL = "lamaisondemargot4@gmail.com";
@@ -143,8 +144,11 @@ export function Contact() {
                   "Rezerwuj na Booking",
                 )}
               </a>
-              <span
-                aria-disabled="true"
+              <a
+                href={AIRBNB_URL}
+                target="_blank"
+                rel="noopener"
+                className="btn-outline"
                 style={{
                   flex: 1,
                   minWidth: 150,
@@ -153,7 +157,8 @@ export function Contact() {
                   justifyContent: "center",
                   gap: 9,
                   background: "transparent",
-                  color: "rgba(30,110,115,.5)",
+                  color: "#1E6E73",
+                  textDecoration: "none",
                   fontFamily: SANS,
                   fontSize: 12,
                   letterSpacing: ".16em",
@@ -161,17 +166,16 @@ export function Contact() {
                   fontWeight: 600,
                   padding: "15px 18px",
                   borderRadius: 7,
-                  border: "1px dashed rgba(30,110,115,.35)",
-                  cursor: "default",
+                  border: "1px solid #1E6E73",
                 }}
               >
                 {tr(
-                  "Airbnb — in arrivo",
-                  "Airbnb — coming soon",
-                  "Airbnb — in Kürze",
-                  "Airbnb — wkrótce",
+                  "Prenota su Airbnb",
+                  "Book on Airbnb",
+                  "Auf Airbnb buchen",
+                  "Rezerwuj na Airbnb",
                 )}
-              </span>
+              </a>
             </div>
           </div>
 
