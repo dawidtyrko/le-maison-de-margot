@@ -33,19 +33,17 @@ export function LocationMap() {
     });
     mapRef.current = map;
 
-    // Drop Leaflet's default prefix (it carries a flag icon); keep the OSM +
-    // CARTO credit, which the tile licence requires.
+    // Drop Leaflet's default prefix (it carries a flag icon); keep the OSM
+    // credit, which the tile licence requires.
     map.attributionControl.setPrefix(false);
 
-    L.tileLayer(
-      "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",
-      {
-        subdomains: "abcd",
-        maxZoom: 20,
-        attribution:
-          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
-      },
-    ).addTo(map);
+    // CARTO basemaps now serve watermarked "API KEY REQUIRED" tiles without a
+    // key, so use the standard OSM tiles (keyless, fine for low traffic).
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 19,
+      attribution:
+        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    }).addTo(map);
 
     // Landmark pins (teal dot + label).
     POIS.forEach((p) => {
